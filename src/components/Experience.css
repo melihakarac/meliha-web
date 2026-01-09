@@ -1,0 +1,111 @@
+.experience-section {
+  background-color: var(--bg-secondary);
+}
+
+.experience-timeline {
+  display: flex;
+  flex-direction: column;
+  gap: var(--spacing-xl);
+  position: relative;
+  padding-left: var(--spacing-lg);
+}
+
+.experience-item {
+  position: relative;
+  padding: var(--spacing-xl);
+}
+
+.experience-item::before {
+  content: '';
+  position: absolute;
+  left: calc(-1 * var(--spacing-lg) - 8px);
+  top: var(--spacing-xl);
+  width: 16px;
+  height: 16px;
+  border-radius: 50%;
+  background-color: var(--color-primary);
+  border: 3px solid var(--bg-secondary);
+  z-index: 1;
+}
+
+.experience-item.experience-work::before {
+  background-color: var(--color-primary);
+}
+
+.experience-item.experience-education::before {
+  background-color: var(--color-secondary);
+}
+
+.experience-header {
+  margin-bottom: var(--spacing-md);
+}
+
+.experience-title {
+  font-size: var(--font-size-xl);
+  font-weight: 600;
+  color: var(--color-dark);
+  margin-bottom: var(--spacing-xs);
+}
+
+.experience-company {
+  display: block;
+  font-size: var(--font-size-lg);
+  color: var(--color-primary);
+  font-weight: 500;
+  margin-bottom: var(--spacing-xs);
+}
+
+.experience-period {
+  display: block;
+  font-size: var(--font-size-sm);
+  color: var(--color-gray);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.experience-description {
+  font-size: var(--font-size-base);
+  line-height: 1.7;
+  color: var(--color-gray-dark);
+  margin-bottom: var(--spacing-lg);
+}
+
+.experience-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+.experience-skill {
+  padding: var(--spacing-xs) var(--spacing-md);
+  background-color: var(--color-gray-light);
+  color: var(--color-gray-dark);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+}
+
+@media (min-width: 768px) {
+  .experience-timeline {
+    padding-left: var(--spacing-2xl);
+  }
+
+  .experience-item::before {
+    left: calc(-1 * var(--spacing-2xl) - 8px);
+  }
+}
+
+@media (prefers-color-scheme: dark) {
+  .experience-title {
+    color: var(--color-light);
+  }
+
+  .experience-description {
+    color: var(--color-gray-light);
+  }
+
+  .experience-skill {
+    background-color: var(--color-gray-dark);
+    color: var(--color-gray-light);
+  }
+}
