@@ -27,13 +27,25 @@
 
 .highlight-item {
   text-align: center;
+  padding: var(--spacing-lg);
+  border-radius: var(--radius-lg);
+  transition: all 0.3s ease;
+  cursor: default;
 }
 
 .highlight-number {
   font-size: var(--font-size-4xl);
   font-weight: 700;
-  color: var(--color-primary);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  -webkit-background-clip: text;
+  -webkit-text-fill-color: transparent;
+  background-clip: text;
   margin-bottom: var(--spacing-sm);
+  transition: transform 0.3s ease;
+}
+
+.highlight-item:hover .highlight-number {
+  transform: scale(1.1);
 }
 
 .highlight-label {
@@ -73,13 +85,4 @@
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  .about-description {
-    color: var(--color-gray-light);
-  }
-
-  .image-placeholder svg circle,
-  .image-placeholder svg ellipse {
-    fill: var(--color-gray-dark);
-  }
-}
+/* Light theme only */

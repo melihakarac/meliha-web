@@ -18,15 +18,15 @@ const Hero = () => {
           <p className="hero-greeting">Hello, I'm</p>
           <h1 className="hero-name">
             <span className="hero-name-first">Meliha</span>
-            <span className="hero-name-last">Your Name</span>
+            <span className="hero-name-last">Lastname</span>
           </h1>
           <h2 className="hero-title">
-            <span className="hero-title-line">Web Developer</span>
-            <span className="hero-title-line">& Creative Designer</span>
+            <span className="hero-title-line">Your Title Here</span>
+            <span className="hero-title-line">& Another Title</span>
           </h2>
           <p className="hero-description">
-            I create beautiful, functional, and user-centered digital experiences.
-            Welcome to my portfolio where I showcase my work, skills, and passion for web development.
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod 
+            tempor incididunt ut labore et dolore magna aliqua.
           </p>
           <div className="hero-buttons">
             <Button 

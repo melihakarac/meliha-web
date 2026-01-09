@@ -1,13 +1,16 @@
 import React from 'react';
 import Container from './Container';
+import useScrollReveal from '../../hooks/useScrollReveal';
 import './Section.css';
 
 const Section = ({ id, children, className = '', title, subtitle }) => {
+  const headerRef = useScrollReveal();
+  
   return (
     <section id={id} className={`section ${className}`.trim()}>
       <Container>
         {(title || subtitle) && (
-          <div className="section-header">
+          <div ref={headerRef} className="section-header scroll-reveal">
             {subtitle && <p className="section-subtitle">{subtitle}</p>}
             {title && <h2 className="section-title">{title}</h2>}
           </div>

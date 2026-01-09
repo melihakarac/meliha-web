@@ -1,33 +1,36 @@
 import React from 'react';
 import Section from './common/Section';
 import Card from './common/Card';
+import useScrollReveal from '../hooks/useScrollReveal';
 import './Experience.css';
 
 const Experience = () => {
+  const timelineRef = useScrollReveal();
+  
   const experiences = [
     {
       type: 'work',
-      title: 'Senior Web Developer',
-      company: 'Tech Company Inc.',
-      period: '2022 - Present',
-      description: 'Leading development of web applications, mentoring junior developers, and collaborating with cross-functional teams to deliver high-quality products.',
-      skills: ['React', 'Node.js', 'TypeScript', 'AWS']
+      title: 'Job Title',
+      company: 'Company Name',
+      period: 'XXXX - Present',
+      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt ut labore et dolore magna aliqua.',
+      skills: ['Skill 1', 'Skill 2', 'Skill 3', 'Skill 4']
     },
     {
       type: 'work',
-      title: 'Web Developer',
-      company: 'Digital Agency',
-      period: '2020 - 2022',
-      description: 'Developed and maintained multiple client websites, implemented responsive designs, and optimized performance for better user experience.',
-      skills: ['JavaScript', 'Vue.js', 'PHP', 'MySQL']
+      title: 'Previous Job Title',
+      company: 'Previous Company',
+      period: 'XXXX - XXXX',
+      description: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex ea commodo consequat.',
+      skills: ['Skill 1', 'Skill 2', 'Skill 3', 'Skill 4']
     },
     {
       type: 'education',
-      title: 'Bachelor of Computer Science',
-      company: 'University Name',
-      period: '2016 - 2020',
-      description: 'Focused on software engineering, web development, and database systems. Graduated with honors.',
-      skills: ['Software Engineering', 'Algorithms', 'Data Structures']
+      title: 'Degree Name',
+      company: 'Institution Name',
+      period: 'XXXX - XXXX',
+      description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat nulla pariatur.',
+      skills: ['Subject 1', 'Subject 2', 'Subject 3']
     }
   ];
 
@@ -38,9 +41,13 @@ const Experience = () => {
       title="Experience & Education"
       className="experience-section"
     >
-      <div className="experience-timeline">
+      <div ref={timelineRef} className="experience-timeline scroll-reveal">
         {experiences.map((item, index) => (
-          <Card key={index} className={`experience-item experience-${item.type}`}>
+          <Card 
+            key={index} 
+            className={`experience-item experience-${item.type} stagger-item hover-lift`}
+            style={{ transitionDelay: `${index * 0.2}s` }}
+          >
             <div className="experience-header">
               <h3 className="experience-title">{item.title}</h3>
               <span className="experience-company">{item.company}</span>

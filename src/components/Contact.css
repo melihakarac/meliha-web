@@ -33,8 +33,14 @@
 }
 
 .contact-detail-item:hover {
-  transform: translateX(4px);
-  box-shadow: var(--shadow-md);
+  transform: translateX(8px) translateY(-2px);
+  box-shadow: var(--shadow-lg);
+  background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-primary) 100%);
+}
+
+.contact-detail-item:hover .contact-icon {
+  background-color: var(--color-light);
+  transform: scale(1.1) rotate(5deg);
 }
 
 .contact-icon {
@@ -46,6 +52,7 @@
   justify-content: center;
   background-color: var(--color-primary-light);
   border-radius: var(--radius-md);
+  transition: all 0.3s ease;
 }
 
 .contact-detail-content {
@@ -87,10 +94,11 @@
 }
 
 .social-link:hover {
-  background-color: var(--color-primary);
+  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
   color: var(--color-light);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-md);
+  transform: translateY(-4px) scale(1.1);
+  box-shadow: var(--shadow-lg);
+  animation: pulse 1s ease-in-out infinite;
 }
 
 .contact-form {
@@ -127,6 +135,13 @@
 .form-group textarea:focus {
   outline: none;
   border-color: var(--color-primary);
+  box-shadow: 0 0 0 3px rgba(99, 102, 241, 0.1);
+  transform: translateY(-2px);
+}
+
+.form-group input,
+.form-group textarea {
+  transition: all 0.3s ease;
 }
 
 .form-group textarea {
@@ -150,32 +165,4 @@
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  .contact-intro {
-    color: var(--color-gray-light);
-  }
-
-  .contact-detail-item {
-    background-color: var(--bg-dark-secondary);
-  }
-
-  .contact-detail-value {
-    color: var(--color-light);
-  }
-
-  .social-link {
-    background-color: var(--bg-dark-secondary);
-    color: var(--color-light);
-  }
-
-  .form-group label {
-    color: var(--color-light);
-  }
-
-  .form-group input,
-  .form-group textarea {
-    background-color: var(--bg-dark-secondary);
-    border-color: var(--color-gray-dark);
-    color: var(--color-light);
-  }
-}
+/* Light theme only */

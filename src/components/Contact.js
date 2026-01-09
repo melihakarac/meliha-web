@@ -1,9 +1,13 @@
 import React, { useState } from 'react';
 import Section from './common/Section';
 import Button from './common/Button';
+import useScrollReveal from '../hooks/useScrollReveal';
 import './Contact.css';
 
 const Contact = () => {
+  const contentRef = useScrollReveal();
+  const formRef = useScrollReveal();
+  
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -27,9 +31,9 @@ const Contact = () => {
   };
 
   const contactInfo = [
-    { icon: '✉️', label: 'Email', value: 'hello@meliha.dev', link: 'mailto:hello@meliha.dev' },
-    { icon: '📱', label: 'Phone', value: '+1 (234) 567-8900', link: 'tel:+12345678900' },
-    { icon: '📍', label: 'Location', value: 'Your City, Country', link: '#' }
+    { icon: '✉️', label: 'Email', value: 'email@example.com', link: 'mailto:email@example.com' },
+    { icon: '📱', label: 'Phone', value: '+X (XXX) XXX-XXXX', link: 'tel:+0000000000' },
+    { icon: '📍', label: 'Location', value: 'City, Country', link: '#' }
   ];
 
   return (
@@ -39,10 +43,10 @@ const Contact = () => {
       title="Let's Work Together"
     >
       <div className="contact-content">
-        <div className="contact-info">
+        <div ref={contentRef} className="contact-info scroll-reveal-left">
           <p className="contact-intro">
-            I'm always open to discussing new projects, creative ideas, or opportunities 
-            to be part of your visions. Feel free to reach out to me!
+            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod 
+            tempor incididunt ut labore et dolore magna aliqua.
           </p>
           <div className="contact-details">
             {contactInfo.map((item, index) => (
@@ -78,7 +82,7 @@ const Contact = () => {
             </a>
           </div>
         </div>
-        <form className="contact-form" onSubmit={handleSubmit}>
+        <form ref={formRef} className="contact-form scroll-reveal-right" onSubmit={handleSubmit}>
           <div className="form-group">
             <label htmlFor="name">Name</label>
             <input

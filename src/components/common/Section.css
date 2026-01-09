@@ -34,8 +34,4 @@
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  .section-title {
-    color: var(--color-light);
-  }
-}
+/* Light theme only */

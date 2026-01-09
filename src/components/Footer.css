@@ -1,6 +1,6 @@
 .footer {
-  background-color: var(--color-dark);
-  color: var(--color-light);
+  background-color: #1a1a1a;
+  color: #ffffff;
   padding: var(--spacing-2xl) 0;
   text-align: center;
 }
@@ -16,7 +16,7 @@
 
 .footer-text {
   font-size: var(--font-size-sm);
-  color: var(--color-gray-light);
+  color: #ffffff;
   margin: 0;
 }
 

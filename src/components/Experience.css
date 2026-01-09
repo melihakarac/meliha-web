@@ -83,6 +83,20 @@
   border-radius: var(--radius-sm);
   font-size: var(--font-size-xs);
   font-weight: 500;
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.experience-skill:hover {
+  background-color: var(--color-primary);
+  color: var(--color-light);
+  transform: translateY(-2px);
+  box-shadow: var(--shadow-sm);
+}
+
+.experience-timeline.revealed .stagger-item {
+  opacity: 1;
+  transform: translateY(0);
 }
 
 @media (min-width: 768px) {
@@ -95,17 +109,4 @@
   }
 }
 
-@media (prefers-color-scheme: dark) {
-  .experience-title {
-    color: var(--color-light);
-  }
-
-  .experience-description {
-    color: var(--color-gray-light);
-  }
-
-  .experience-skill {
-    background-color: var(--color-gray-dark);
-    color: var(--color-gray-light);
-  }
-}
+/* Light theme only */

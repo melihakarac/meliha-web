@@ -1,3 +1,4 @@
+@import url('https://fonts.googleapis.com/css?family=Archivo:700|Inter:400');
 @import './styles/variables.css';
 @import './styles/animations.css';
 
@@ -13,13 +14,47 @@
   -moz-osx-font-smoothing: grayscale;
 }
 
+html {
+  font-size: 100%; /* 16px */
+}
+
 body {
   margin: 0;
   font-family: var(--font-family-primary);
+  font-weight: var(--font-weight-normal);
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
   background-color: var(--bg-primary);
   color: var(--color-dark);
+}
+
+h1, h2, h3, h4, h5 {
+  font-family: var(--font-family-heading);
+  font-weight: var(--font-weight-bold);
+}
+
+h1 {
+  font-size: var(--font-size-6xl); /* 4.210rem / 67.36px */
+}
+
+h2 {
+  font-size: var(--font-size-5xl); /* 3.158rem / 50.56px */
+}
+
+h3 {
+  font-size: var(--font-size-4xl); /* 2.369rem / 37.92px */
+}
+
+h4 {
+  font-size: var(--font-size-3xl); /* 1.777rem / 28.48px */
+}
+
+h5 {
+  font-size: var(--font-size-2xl); /* 1.333rem / 21.28px */
+}
+
+small {
+  font-size: var(--font-size-xs); /* 0.750rem / 12px */
 }
 
 code {
