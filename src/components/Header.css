@@ -23,20 +23,40 @@
   align-items: center;
 }
 
-.navbar-brand a {
-  font-size: var(--font-size-xl);
+.navbar-brand .logo {
+  display: flex;
+  align-items: center;
+  text-decoration: none;
+  transition: all 0.3s ease;
+  font-family: 'Orbitron', var(--font-family-heading);
+}
+
+.navbar-brand .logo:hover {
+  transform: scale(1.05);
+}
+
+.logo-bracket {
+  font-size: var(--font-size-lg);
+  font-weight: 400;
+  color: var(--color-gray);
+  transition: color 0.3s ease;
+}
+
+.logo-letter {
+  font-size: var(--font-size-2xl);
   font-weight: 700;
   background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
-  text-decoration: none;
-  transition: all 0.3s ease;
-  display: inline-block;
+  margin: 0 2px;
 }
 
-.navbar-brand a:hover {
-  transform: scale(1.05);
+.navbar-brand .logo:hover .logo-bracket {
+  color: var(--color-secondary);
+}
+
+.navbar-brand .logo:hover .logo-letter {
   filter: brightness(1.2);
 }
 

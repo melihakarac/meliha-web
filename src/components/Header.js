@@ -32,8 +32,10 @@ const Header = () => {
     <header className={`header ${isScrolled ? 'header-scrolled' : ''}`}>
       <nav className="navbar">
         <div className="navbar-brand">
-          <a href="#hero" onClick={(e) => handleNavClick(e, 'hero')}>
-            Meliha
+          <a href="#hero" onClick={(e) => handleNavClick(e, 'hero')} className="logo">
+            <span className="logo-bracket">&lt;</span>
+            <span className="logo-letter">M</span>
+            <span className="logo-bracket">/&gt;</span>
           </a>
         </div>
 
