@@ -1,5 +1,7 @@
 import React from 'react';
+
 import { t } from '../i18n';
+
 import './Footer.css';
 
 const Footer = () => {

@@ -1,47 +1,21 @@
 import React, { useState, useEffect } from 'react';
-import ReactDOM from 'react-dom';
-import { Section, Button } from './common';
+
+import { Section, Button, Toast } from './common';
 import { useScrollReveal, useFormValidation } from '../hooks';
-import { contactInfo, socialLinks } from '../data';
-import { t } from '../i18n';
-import { Icon } from '../assets/icons';
-import { getGoogleFormUrl, buildGoogleFormData } from '../config';
+import { contactInfo, socialLinks, formFields, getInitialFormValues } from '../data';
 import { contactFormRules } from '../utils';
+import { getGoogleFormUrl, buildGoogleFormData } from '../config';
+import { Icon } from '../assets/icons';
+import { t } from '../i18n';
+
 import './Contact.css';
-
-// Toast component rendered via portal to ensure fixed positioning works
-const Toast = ({ type, message, isHiding }) => {
-  return ReactDOM.createPortal(
-    <p className={`form-status form-status--${type} ${isHiding ? 'hiding' : ''}`}>{message}</p>,
-    document.body
-  );
-};
-
-// Form field configuration
-const formFields = [
-  { name: 'name', type: 'text', placeholder: 'Jane Smith' },
-  { name: 'email', type: 'email', placeholder: 'jane@company.com' },
-  { name: 'subject', type: 'text', placeholder: 'New project opportunity' },
-  {
-    name: 'message',
-    type: 'textarea',
-    placeholder: 'Hi Meliha! I came across your portfolio and...',
-  },
-];
-
-const initialFormValues = {
-  name: '',
-  email: '',
-  subject: '',
-  message: '',
-};
 
 const Contact = () => {
   const contentRef = useScrollReveal();
   const formRef = useScrollReveal();
 
   const { values, isValid, validate, reset, getFieldProps, hasError, getError } = useFormValidation(
-    initialFormValues,
+    getInitialFormValues(),
     contactFormRules
   );
 
@@ -49,7 +23,6 @@ const Contact = () => {
   const [submitStatus, setSubmitStatus] = useState(null);
   const [isStatusHiding, setIsStatusHiding] = useState(false);
 
-  // Auto-dismiss success/error message after 5 seconds
   useEffect(() => {
     if (submitStatus) {
       const hideTimer = setTimeout(() => {

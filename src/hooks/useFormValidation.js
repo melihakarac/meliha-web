@@ -12,13 +12,11 @@ const useFormValidation = (initialValues, validationRules) => {
   const [errors, setErrors] = useState({});
   const [touched, setTouched] = useState({});
 
-  // Handle input change
   const handleChange = useCallback(
     (e) => {
       const { name, value } = e.target;
       setValues((prev) => ({ ...prev, [name]: value }));
 
-      // Clear error when user starts typing
       if (errors[name]) {
         setErrors((prev) => ({ ...prev, [name]: '' }));
       }
@@ -26,7 +24,6 @@ const useFormValidation = (initialValues, validationRules) => {
     [errors]
   );
 
-  // Handle input blur
   const handleBlur = useCallback(
     (e) => {
       const { name, value } = e.target;
@@ -38,7 +35,6 @@ const useFormValidation = (initialValues, validationRules) => {
     [validationRules]
   );
 
-  // Check if form is valid (without setting errors)
   const isValid = useMemo(() => {
     return Object.keys(values).every((field) => {
       const error = validateField(field, values[field], validationRules);
@@ -46,7 +42,6 @@ const useFormValidation = (initialValues, validationRules) => {
     });
   }, [values, validationRules]);
 
-  // Validate entire form (sets errors and touched)
   const validate = useCallback(() => {
     const { isValid, errors: formErrors } = validateForm(values, validationRules);
 
@@ -56,14 +51,12 @@ const useFormValidation = (initialValues, validationRules) => {
     return isValid;
   }, [values, validationRules]);
 
-  // Reset form to initial state
   const reset = useCallback(() => {
     setValues(initialValues);
     setErrors({});
     setTouched({});
   }, [initialValues]);
 
-  // Get field props for easy spreading
   const getFieldProps = useCallback(
     (name) => ({
       name,
@@ -76,10 +69,8 @@ const useFormValidation = (initialValues, validationRules) => {
     [values, handleChange, handleBlur, touched, errors]
   );
 
-  // Check if field has error
   const hasError = useCallback((name) => touched[name] && !!errors[name], [touched, errors]);
 
-  // Get error message for field
   const getError = useCallback((name) => errors[name] || '', [errors]);
 
   return {

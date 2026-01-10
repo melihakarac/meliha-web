@@ -1,9 +1,11 @@
 import React from 'react';
+
 import { Container } from './common';
-import { useTypewriter, useSmoothScroll } from '../hooks';
-import { t } from '../i18n';
-import { ChevronDownIcon } from '../assets/icons';
 import ParticleBackground from './ParticleBackground';
+import { useTypewriter, useSmoothScroll } from '../hooks';
+import { ChevronDownIcon } from '../assets/icons';
+import { t } from '../i18n';
+
 import './Hero.css';
 
 const Hero = () => {

@@ -1,16 +1,8 @@
-/**
- * Form validation utilities
- */
-
-// Common validation patterns
 export const patterns = {
-  // Letters, accented chars, spaces, hyphens, apostrophes
   name: /^[a-zA-ZÀ-ÿ\s'-]+$/,
-  // Standard email format
   email: /^[^\s@]+@[^\s@]+\.[^\s@]+$/,
 };
 
-// Validation rules for contact form
 export const contactFormRules = {
   name: {
     required: true,
@@ -54,22 +46,18 @@ export const validateField = (fieldName, value, rules) => {
   const trimmedValue = value.trim();
   const capitalizedName = fieldName.charAt(0).toUpperCase() + fieldName.slice(1);
 
-  // Check required
   if (fieldRules.required && !trimmedValue) {
     return `${capitalizedName} is required`;
   }
 
-  // Check pattern
   if (fieldRules.pattern && trimmedValue && !fieldRules.pattern.test(trimmedValue)) {
     return fieldRules.patternMessage || fieldRules.message;
   }
 
-  // Check min length
   if (fieldRules.minLength && trimmedValue.length < fieldRules.minLength) {
     return fieldRules.message;
   }
 
-  // Check max length
   if (fieldRules.maxLength && trimmedValue.length > fieldRules.maxLength) {
     return `${capitalizedName} is too long (max ${fieldRules.maxLength} characters)`;
   }

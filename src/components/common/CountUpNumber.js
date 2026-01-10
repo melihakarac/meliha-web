@@ -1,4 +1,5 @@
 import React from 'react';
+
 import { useCountUp } from '../../hooks';
 
 const CountUpNumber = ({ value, duration = 2000, delay = 0, className = '' }) => {

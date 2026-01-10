@@ -1,9 +1,11 @@
 import React from 'react';
+
 import { Section, CountUpNumber } from './common';
 import { useScrollReveal } from '../hooks';
 import { highlights } from '../data';
 import { t } from '../i18n';
 import profileImage from '../assets/images/profile.png';
+
 import './About.css';
 
 const About = () => {

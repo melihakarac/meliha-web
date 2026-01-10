@@ -1,8 +1,10 @@
 import React, { useState, useEffect, useMemo } from 'react';
-import { getNavLinks } from '../constants/sections';
+
 import { Button } from './common';
 import { useSmoothScroll } from '../hooks';
+import { getNavLinks } from '../constants';
 import { t } from '../i18n';
+
 import './Header.css';
 
 const Header = () => {

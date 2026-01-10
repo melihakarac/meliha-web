@@ -1,38 +1,17 @@
 import React, { useState } from 'react';
+
+import { skillsStructure } from '../data';
+import { fileIcons, getFileType } from '../constants';
+
 import './SkillsTree.css';
 
-const FileIcon = ({ type }) => {
-  const icons = {
-    folder: '📁',
-    js: '🟨',
-    ts: '🔷',
-    css: '🎨',
-    json: '📋',
-    md: '📝',
-    config: '⚙️',
-    db: '🗄️',
-    git: '🔀',
-    package: '📦',
-  };
-  return <span className="file-icon">{icons[type] || '📄'}</span>;
-};
+const FileIcon = ({ type }) => (
+  <span className="file-icon">{fileIcons[type] || fileIcons.file}</span>
+);
 
 const TreeNode = ({ node, level = 0, defaultOpen = false }) => {
   const [isOpen, setIsOpen] = useState(defaultOpen);
   const isFolder = node.children && node.children.length > 0;
-
-  const getFileType = (name) => {
-    if (name.endsWith('.js') || name.endsWith('.jsx')) return 'js';
-    if (name.endsWith('.ts') || name.endsWith('.tsx')) return 'ts';
-    if (name.endsWith('.css')) return 'css';
-    if (name.endsWith('.json')) return 'json';
-    if (name.endsWith('.md')) return 'md';
-    if (name.endsWith('.config')) return 'config';
-    if (name.endsWith('.db')) return 'db';
-    if (name === '.gitignore' || name === '.git') return 'git';
-    if (name === 'package.json') return 'package';
-    return 'file';
-  };
 
   return (
     <div className="tree-node" style={{ '--level': level }}>
@@ -64,59 +43,6 @@ const TreeNode = ({ node, level = 0, defaultOpen = false }) => {
 };
 
 const SkillsTree = () => {
-  const skillsStructure = {
-    name: 'toolkit/',
-    defaultOpen: true,
-    children: [
-      {
-        name: 'frontend/',
-        defaultOpen: true,
-        children: [
-          { name: 'React.js' },
-          { name: 'Next.js' },
-          { name: 'TypeScript.ts' },
-          { name: 'TailwindCSS.css' },
-          { name: 'HTML.html' },
-          { name: 'CSS.css' },
-        ],
-      },
-      {
-        name: 'backend/',
-        defaultOpen: true,
-        children: [{ name: 'Node.js' }, { name: 'MongoDB.db' }],
-      },
-      {
-        name: 'tools/',
-        defaultOpen: true,
-        children: [
-          { name: 'Git.config' },
-          { name: 'Shopify.js' },
-          { name: 'MaterialUI.jsx' },
-          { name: 'Amplitude.js' },
-        ],
-      },
-      {
-        name: 'practices/',
-        defaultOpen: true,
-        children: [
-          { name: 'agile-development.md' },
-          { name: 'performance-tuning.md' },
-          { name: 'seo-optimization.md' },
-          { name: 'problem-solving.md' },
-        ],
-      },
-      {
-        name: 'soft-skills/',
-        children: [
-          { name: 'teamwork.md' },
-          { name: 'communication.md' },
-          { name: 'adaptability.md' },
-          { name: 'creativity.md' },
-        ],
-      },
-    ],
-  };
-
   return (
     <div className="skills-tree">
       <div className="tree-header">

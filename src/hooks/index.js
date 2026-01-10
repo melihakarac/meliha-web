@@ -1,4 +1,3 @@
-// Central export for all hooks
 export { default as useScrollReveal } from './useScrollReveal';
 export { default as useTypewriter } from './useTypewriter';
 export { default as useSmoothScroll } from './useSmoothScroll';

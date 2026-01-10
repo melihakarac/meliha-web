@@ -1,8 +1,10 @@
 import React from 'react';
+
 import { Section } from './common';
+import SkillsTree from './SkillsTree';
 import { useScrollReveal } from '../hooks';
 import { t } from '../i18n';
-import SkillsTree from './SkillsTree';
+
 import './Skills.css';
 
 const Skills = () => {

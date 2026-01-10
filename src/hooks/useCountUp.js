@@ -7,7 +7,6 @@ const useCountUp = (endValue, options = {}) => {
   const [hasStarted, setHasStarted] = useState(false);
   const elementRef = useRef(null);
 
-  // Parse the end value (handle "5+", "100%", "6+", etc.)
   const parseValue = (value) => {
     const numericPart = parseInt(value.toString().replace(/[^0-9]/g, ''), 10);
     return isNaN(numericPart) ? 0 : numericPart;
@@ -61,8 +60,6 @@ const useCountUp = (endValue, options = {}) => {
 
       const elapsed = timestamp - startTime;
       const progress = Math.min(elapsed / duration, 1);
-
-      // Easing function (ease-out)
       const easeOut = 1 - Math.pow(1 - progress, 3);
 
       const currentValue = Math.floor(easeOut * numericEnd);

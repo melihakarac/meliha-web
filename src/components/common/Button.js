@@ -1,15 +1,16 @@
 import React from 'react';
+
 import './Button.css';
 
-const Button = ({ 
-  children, 
-  variant = 'primary', 
+const Button = ({
+  children,
+  variant = 'primary',
   size = 'md',
   href,
   onClick,
   className = '',
   type = 'button',
-  ...props 
+  ...props
 }) => {
   const baseClass = 'btn';
   const variantClass = `btn-${variant}`;
@@ -25,12 +26,7 @@ const Button = ({
   }
 
   return (
-    <button 
-      type={type}
-      className={classes} 
-      onClick={onClick}
-      {...props}
-    >
+    <button type={type} className={classes} onClick={onClick} {...props}>
       {children}
     </button>
   );

@@ -1,4 +1,5 @@
 import React, { useRef, useEffect } from 'react';
+
 import './ParticleBackground.css';
 
 const ParticleBackground = () => {
@@ -12,12 +13,11 @@ const ParticleBackground = () => {
     const ctx = canvas.getContext('2d');
     const parent = canvas.parentElement;
 
-    // Colors from the palette
     const colors = [
-      'rgba(93, 109, 55, 0.6)', // primary olive
-      'rgba(221, 162, 95, 0.6)', // secondary caramel
-      'rgba(187, 107, 37, 0.5)', // accent copper
-      'rgba(40, 53, 24, 0.4)', // dark olive
+      'rgba(93, 109, 55, 0.6)',
+      'rgba(221, 162, 95, 0.6)',
+      'rgba(187, 107, 37, 0.5)',
+      'rgba(40, 53, 24, 0.4)',
     ];
 
     const resizeCanvas = () => {
@@ -53,7 +53,6 @@ const ParticleBackground = () => {
       const connectionDistance = 150;
       const mouseDistance = 200;
 
-      // Connect to other particles
       for (let i = index + 1; i < particlesRef.current.length; i++) {
         const other = particlesRef.current[i];
         const dx = particle.x - other.x;
@@ -71,7 +70,6 @@ const ParticleBackground = () => {
         }
       }
 
-      // Connect to mouse
       if (mouseRef.current.x !== null && mouseRef.current.y !== null) {
         const dx = particle.x - mouseRef.current.x;
         const dy = particle.y - mouseRef.current.y;
@@ -90,7 +88,6 @@ const ParticleBackground = () => {
     };
 
     const updateParticle = (particle) => {
-      // Mouse interaction - gentle attraction
       if (mouseRef.current.x !== null && mouseRef.current.y !== null) {
         const dx = mouseRef.current.x - particle.x;
         const dy = mouseRef.current.y - particle.y;
@@ -104,11 +101,9 @@ const ParticleBackground = () => {
         }
       }
 
-      // Apply velocity with damping
       particle.vx *= 0.99;
       particle.vy *= 0.99;
 
-      // Limit velocity
       const maxSpeed = 2;
       const speed = Math.sqrt(particle.vx * particle.vx + particle.vy * particle.vy);
       if (speed > maxSpeed) {
@@ -119,7 +114,6 @@ const ParticleBackground = () => {
       particle.x += particle.vx;
       particle.y += particle.vy;
 
-      // Wrap around edges
       if (particle.x < 0) particle.x = canvas.width;
       if (particle.x > canvas.width) particle.x = 0;
       if (particle.y < 0) particle.y = canvas.height;
@@ -135,7 +129,6 @@ const ParticleBackground = () => {
         drawParticle(particle);
       });
 
-      // Draw mouse glow
       if (mouseRef.current.x !== null && mouseRef.current.y !== null) {
         const gradient = ctx.createRadialGradient(
           mouseRef.current.x,
@@ -167,11 +160,9 @@ const ParticleBackground = () => {
       mouseRef.current.y = null;
     };
 
-    // Initialize
     resizeCanvas();
     animate();
 
-    // Event listeners
     window.addEventListener('resize', resizeCanvas);
     parent.addEventListener('mousemove', handleMouseMove);
     parent.addEventListener('mouseleave', handleMouseLeave);

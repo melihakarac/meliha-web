@@ -1,8 +1,10 @@
 import React from 'react';
+
 import { Section, Card, SkillTag } from './common';
 import { useStaggerReveal } from '../hooks';
 import { experiences } from '../data';
 import { t } from '../i18n';
+
 import './Experience.css';
 
 const Experience = () => {

@@ -19,7 +19,6 @@ const useStaggerReveal = (options = {}) => {
       (entries) => {
         entries.forEach((entry) => {
           if (entry.isIntersecting && !entry.target.classList.contains('revealed')) {
-            // Add delay based on order of reveal
             setTimeout(() => {
               entry.target.classList.add('revealed');
             }, revealedCount * staggerDelay);
@@ -43,7 +42,6 @@ const useStaggerReveal = (options = {}) => {
   }, [threshold, rootMargin, staggerDelay]);
 
   useEffect(() => {
-    // Small delay to ensure DOM is ready
     const timeoutId = setTimeout(observeItems, 100);
     return () => clearTimeout(timeoutId);
   }, [observeItems]);

@@ -1,11 +1,13 @@
 import React from 'react';
+
 import Container from './Container';
-import useScrollReveal from '../../hooks/useScrollReveal';
+import { useScrollReveal } from '../../hooks';
+
 import './Section.css';
 
 const Section = ({ id, children, className = '', title, subtitle }) => {
   const headerRef = useScrollReveal();
-  
+
   return (
     <section id={id} className={`section ${className}`.trim()}>
       <Container>

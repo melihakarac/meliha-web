@@ -32,7 +32,6 @@ export const TelegramIcon = ({ size = 24, ...props }) => (
   </svg>
 );
 
-// Icon mapping for dynamic usage
 export const icons = {
   linkedin: LinkedInIcon,
   github: GitHubIcon,
