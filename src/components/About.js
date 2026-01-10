@@ -33,7 +33,12 @@ const About = () => {
         </div>
         <div ref={imageRef} className="about-image scroll-reveal-right">
           <div className="profile-image-wrapper hover-grow">
-            <img src={profileImage} alt="Meliha - Software Developer" className="profile-image" />
+            <img
+              src={profileImage}
+              alt="Meliha Karac - Software Developer specializing in React and Next.js"
+              className="profile-image"
+              loading="lazy"
+            />
           </div>
         </div>
       </div>

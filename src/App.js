@@ -11,12 +11,17 @@ import './App.css';
 function App() {
   return (
     <div className="App">
+      <a href="#main-content" className="skip-link">
+        Skip to main content
+      </a>
       <Header />
-      <Hero />
-      <About />
-      <Skills />
-      <Experience />
-      <Contact />
+      <main id="main-content">
+        <Hero />
+        <About />
+        <Skills />
+        <Experience />
+        <Contact />
+      </main>
       <Footer />
     </div>
   );

@@ -1,6 +1,7 @@
 {
-  "short_name": "Meliha Portfolio",
-  "name": "Meliha's Digital Portfolio",
+  "short_name": "Meliha Karac",
+  "name": "Meliha Karac | Software Developer",
+  "description": "Software Developer specializing in React and Next.js",
   "icons": [
     {
       "src": "favicon.ico",
@@ -20,6 +21,6 @@
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#000000",
-  "background_color": "#ffffff"
+  "theme_color": "#5d6d37",
+  "background_color": "#fffceb"
 }
