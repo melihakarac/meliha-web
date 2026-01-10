@@ -1,11 +1,15 @@
-import React, { useState, useEffect } from 'react';
-import { NAV_LINKS } from '../constants/sections';
-import Button from './common/Button';
+import React, { useState, useEffect, useMemo } from 'react';
+import { getNavLinks } from '../constants/sections';
+import { Button } from './common';
+import { useSmoothScroll } from '../hooks';
+import { t } from '../i18n';
 import './Header.css';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);
   const [isScrolled, setIsScrolled] = useState(false);
+  const { handleScrollClick } = useSmoothScroll();
+  const navLinks = useMemo(() => getNavLinks(), []);
 
   useEffect(() => {
     const handleScroll = () => {
@@ -17,12 +21,7 @@ const Header = () => {
   }, []);
 
   const handleNavClick = (e, sectionId) => {
-    e.preventDefault();
-    const element = document.getElementById(sectionId);
-    if (element) {
-      element.scrollIntoView({ behavior: 'smooth', block: 'start' });
-      setIsMenuOpen(false);
-    }
+    handleScrollClick(e, sectionId, () => setIsMenuOpen(false));
   };
 
   const toggleMenu = () => {
@@ -37,8 +36,8 @@ const Header = () => {
             Meliha
           </a>
         </div>
-        
-        <button 
+
+        <button
           className={`menu-toggle ${isMenuOpen ? 'menu-open' : ''}`}
           onClick={toggleMenu}
           aria-label="Toggle menu"
@@ -49,7 +48,7 @@ const Header = () => {
         </button>
 
         <ul className={`navbar-nav ${isMenuOpen ? 'nav-open' : ''}`}>
-          {NAV_LINKS.map((link) => (
+          {navLinks.map((link) => (
             <li key={link.id} className="nav-item">
               <a
                 href={`#${link.id}`}
@@ -61,13 +60,13 @@ const Header = () => {
             </li>
           ))}
           <li className="nav-item">
-            <Button 
-              href="#contact" 
+            <Button
+              href="#contact"
               onClick={(e) => handleNavClick(e, 'contact')}
               variant="primary"
               size="sm"
             >
-              Get In Touch
+              {t('common.getInTouch')}
             </Button>
           </li>
         </ul>

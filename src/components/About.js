@@ -1,6 +1,9 @@
 import React from 'react';
-import Section from './common/Section';
-import useScrollReveal from '../hooks/useScrollReveal';
+import { Section } from './common';
+import { useScrollReveal } from '../hooks';
+import { highlights } from '../data';
+import { t } from '../i18n';
+import profileImage from '../assets/images/profile.png';
 import './About.css';
 
 const About = () => {
@@ -8,42 +11,29 @@ const About = () => {
   const imageRef = useScrollReveal();
   const highlightsRef = useScrollReveal();
 
+  const descriptions = t('about.description');
+
   return (
-    <Section id="about" subtitle="About Me" title="Get to Know Me">
+    <Section id="about" subtitle={t('about.subtitle')} title={t('about.title')}>
       <div className="about-content">
         <div ref={textRef} className="about-text scroll-reveal">
-          <p className="about-description">
-            Software Developer specializing in React and Next.js, with a focus on 
-            building scalable, user-friendly applications. Skilled in performance 
-            optimization, troubleshooting, and intuitive design.
-          </p>
-          <p className="about-description">
-            Adept at bridging technical and business needs to deliver high-quality, 
-            innovative solutions. Experienced in agile methodologies and collaborative 
-            cross-functional team environments.
-          </p>
+          {descriptions.map((paragraph, index) => (
+            <p key={index} className="about-description">
+              {paragraph}
+            </p>
+          ))}
           <div ref={highlightsRef} className="about-highlights scroll-reveal-scale">
-            <div className="highlight-item hover-lift">
-              <h3 className="highlight-number">5+</h3>
-              <p className="highlight-label">Years Experience</p>
-            </div>
-            <div className="highlight-item hover-lift">
-              <h3 className="highlight-number">6+</h3>
-              <p className="highlight-label">Projects Delivered</p>
-            </div>
-            <div className="highlight-item hover-lift">
-              <h3 className="highlight-number">100%</h3>
-              <p className="highlight-label">Client Satisfaction</p>
-            </div>
+            {highlights.map((item, index) => (
+              <div key={index} className="highlight-item hover-lift">
+                <h3 className="highlight-number">{item.value}</h3>
+                <p className="highlight-label">{item.label}</p>
+              </div>
+            ))}
           </div>
         </div>
         <div ref={imageRef} className="about-image scroll-reveal-right">
-          <div className="image-placeholder hover-grow">
-            <svg width="300" height="300" viewBox="0 0 300 300" fill="none">
-              <circle cx="150" cy="150" r="150" fill="#e5e7eb"/>
-              <circle cx="150" cy="130" r="40" fill="#9ca3af"/>
-              <ellipse cx="150" cy="200" rx="70" ry="50" fill="#9ca3af"/>
-            </svg>
+          <div className="profile-image-wrapper hover-grow">
+            <img src={profileImage} alt="Meliha - Software Developer" className="profile-image" />
           </div>
         </div>
       </div>

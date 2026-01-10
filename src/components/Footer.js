@@ -1,4 +1,5 @@
 import React from 'react';
+import { t } from '../i18n';
 import './Footer.css';
 
 const Footer = () => {
@@ -7,12 +8,8 @@ const Footer = () => {
   return (
     <footer className="footer">
       <div className="footer-content">
-        <p className="footer-text">
-          © {currentYear} Meliha. All rights reserved.
-        </p>
-        <p className="footer-text">
-          Built with React & ❤️
-        </p>
+        <p className="footer-text">{t('footer.copyright', { year: currentYear })}</p>
+        <p className="footer-text">{t('common.builtWith')}</p>
       </div>
     </footer>
   );

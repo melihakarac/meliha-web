@@ -1,0 +1,67 @@
+{
+  "common": {
+    "scrollDown": "Scroll Down",
+    "sendMessage": "Send Message",
+    "getInTouch": "Get In Touch",
+    "projectsLabel": "Projects:",
+    "builtWith": "Built with React & ❤️"
+  },
+  "nav": {
+    "home": "Home",
+    "about": "About",
+    "skills": "Skills",
+    "experience": "Experience",
+    "contact": "Contact"
+  },
+  "hero": {
+    "greeting": "Hello, I'm Meliha",
+    "title": ["Software Developer", "React & Next.js Specialist"],
+    "description": "Building scalable, user-friendly applications with a focus on performance optimization and intuitive design."
+  },
+  "about": {
+    "subtitle": "About Me",
+    "title": "Get to Know Me",
+    "description": [
+      "Software Developer specializing in React and Next.js, with a focus on building scalable, user-friendly applications. Skilled in performance optimization, troubleshooting, and intuitive design.",
+      "Adept at bridging technical and business needs to deliver high-quality, innovative solutions. Experienced in agile methodologies and collaborative cross-functional team environments."
+    ],
+    "highlights": {
+      "yearsExperience": {
+        "value": "5+",
+        "label": "Years Experience"
+      },
+      "projectsDelivered": {
+        "value": "6+",
+        "label": "Projects Delivered"
+      },
+      "clientSatisfaction": {
+        "value": "100%",
+        "label": "Client Satisfaction"
+      }
+    }
+  },
+  "skills": {
+    "subtitle": "My Skills",
+    "title": "Technologies & Tools I Work With"
+  },
+  "experience": {
+    "subtitle": "My Journey",
+    "title": "Experience & Education"
+  },
+  "contact": {
+    "subtitle": "Get In Touch",
+    "title": "Let's Work Together",
+    "intro": "I'm always open to discussing new projects, creative ideas, or opportunities to collaborate. Feel free to reach out!",
+    "form": {
+      "name": "Name",
+      "email": "Email",
+      "subject": "Subject",
+      "message": "Message"
+    },
+    "successMessage": "Thank you for your message! I'll get back to you soon.",
+    "errorMessage": "Something went wrong. Please try again or email me directly."
+  },
+  "footer": {
+    "copyright": "© {year} Meliha. All rights reserved."
+  }
+}

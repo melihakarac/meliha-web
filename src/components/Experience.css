@@ -25,7 +25,6 @@
   height: 16px;
   border-radius: 50%;
   background-color: var(--color-primary);
-  border: 3px solid var(--bg-secondary);
   z-index: 1;
 }
 
@@ -75,24 +74,6 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--spacing-sm);
-}
-
-.experience-skill {
-  padding: var(--spacing-xs) var(--spacing-md);
-  background-color: var(--color-gray-light);
-  color: var(--color-gray-dark);
-  border-radius: var(--radius-sm);
-  font-size: var(--font-size-xs);
-  font-weight: 500;
-  transition: all 0.3s ease;
-  cursor: default;
-}
-
-.experience-skill:hover {
-  background-color: var(--color-primary);
-  color: var(--color-light);
-  transform: translateY(-2px);
-  box-shadow: var(--shadow-sm);
 }
 
 .experience-timeline.revealed .stagger-item {
@@ -159,24 +140,6 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--spacing-xs);
-}
-
-.project-skill {
-  padding: 2px var(--spacing-sm);
-  background-color: var(--color-gray-light);
-  color: var(--color-gray-dark);
-  border-radius: var(--radius-sm);
-  font-size: var(--font-size-xs);
-  font-weight: 500;
-  transition: all 0.3s ease;
-  cursor: default;
-}
-
-.project-skill:hover {
-  background-color: var(--color-secondary);
-  color: var(--color-light);
-  transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(221, 162, 95, 0.3);
 }
 
 @media (min-width: 768px) {
