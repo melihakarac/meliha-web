@@ -3,6 +3,7 @@ import { Container } from './common';
 import { useTypewriter, useSmoothScroll } from '../hooks';
 import { t } from '../i18n';
 import { ChevronDownIcon } from '../assets/icons';
+import ParticleBackground from './ParticleBackground';
 import './Hero.css';
 
 const Hero = () => {
@@ -38,6 +39,7 @@ const Hero = () => {
 
   return (
     <section id="hero" className="hero">
+      <ParticleBackground />
       <Container>
         <div className="hero-content">
           <h1 className="hero-name">
