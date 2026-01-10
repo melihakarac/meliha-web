@@ -64,9 +64,8 @@
 .image-placeholder {
   width: 100%;
   max-width: 400px;
-  border-radius: var(--radius-xl);
+  border-radius: 50%;
   overflow: hidden;
-  box-shadow: var(--shadow-xl);
 }
 
 .image-placeholder svg {

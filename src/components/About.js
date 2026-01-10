@@ -13,28 +13,27 @@ const About = () => {
       <div className="about-content">
         <div ref={textRef} className="about-text scroll-reveal">
           <p className="about-description">
-            Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod 
-            tempor incididunt ut labore et dolore magna aliqua. Ut enim ad minim 
-            veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip ex 
-            ea commodo consequat.
+            Software Developer specializing in React and Next.js, with a focus on 
+            building scalable, user-friendly applications. Skilled in performance 
+            optimization, troubleshooting, and intuitive design.
           </p>
           <p className="about-description">
-            Duis aute irure dolor in reprehenderit in voluptate velit esse cillum 
-            dolore eu fugiat nulla pariatur. Excepteur sint occaecat cupidatat non 
-            proident, sunt in culpa qui officia deserunt mollit anim id est laborum.
+            Adept at bridging technical and business needs to deliver high-quality, 
+            innovative solutions. Experienced in agile methodologies and collaborative 
+            cross-functional team environments.
           </p>
           <div ref={highlightsRef} className="about-highlights scroll-reveal-scale">
             <div className="highlight-item hover-lift">
-              <h3 className="highlight-number">XX+</h3>
-              <p className="highlight-label">Label One</p>
+              <h3 className="highlight-number">5+</h3>
+              <p className="highlight-label">Years Experience</p>
             </div>
             <div className="highlight-item hover-lift">
-              <h3 className="highlight-number">XX+</h3>
-              <p className="highlight-label">Label Two</p>
+              <h3 className="highlight-number">6+</h3>
+              <p className="highlight-label">Projects Delivered</p>
             </div>
             <div className="highlight-item hover-lift">
-              <h3 className="highlight-number">XX+</h3>
-              <p className="highlight-label">Label Three</p>
+              <h3 className="highlight-number">100%</h3>
+              <p className="highlight-label">Client Satisfaction</p>
             </div>
           </div>
         </div>

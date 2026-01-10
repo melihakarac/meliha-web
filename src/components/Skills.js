@@ -10,19 +10,19 @@ const Skills = () => {
   const skillCategories = [
     {
       title: 'Frontend Development',
-      skills: ['HTML5', 'CSS3', 'JavaScript', 'React', 'Vue.js', 'TypeScript']
+      skills: ['React', 'Next.js', 'TypeScript', 'Tailwind CSS', 'CSS', 'HTML']
     },
     {
-      title: 'Backend Development',
-      skills: ['Node.js', 'Express', 'Python', 'PHP', 'MySQL', 'MongoDB']
+      title: 'Backend & Tools',
+      skills: ['Node.js', 'MongoDB', 'Git', 'Shopify', 'Material UI', 'Amplitude']
     },
     {
-      title: 'Tools & Technologies',
-      skills: ['Git', 'Webpack', 'Docker', 'AWS', 'Figma', 'Adobe XD']
+      title: 'Development Practices',
+      skills: ['Agile Development', 'Performance Tuning', 'SEO Optimization', 'Problem-Solving']
     },
     {
-      title: 'Design',
-      skills: ['UI/UX Design', 'Responsive Design', 'Wireframing', 'Prototyping', 'Branding']
+      title: 'Soft Skills',
+      skills: ['Teamwork', 'Adaptability', 'Creativity', 'Communication', 'Collaboration']
     }
   ];
 

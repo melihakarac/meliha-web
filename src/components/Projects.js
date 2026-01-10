@@ -11,28 +11,37 @@ const Projects = () => {
   const projects = [
     {
       id: 1,
-      title: 'Project One',
-      description: 'Lorem ipsum dolor sit amet, consectetur adipiscing elit. Sed do eiusmod tempor incididunt.',
-      tags: ['Tag 1', 'Tag 2', 'Tag 3', 'Tag 4'],
-      image: 'https://via.placeholder.com/600x400?text=Project+1',
+      title: 'MultiBank Trading Platform',
+      description: 'Maintained and enhanced trading web applications handling sensitive financial data. Implemented new features with robust security and industry compliance.',
+      tags: ['React', 'Next.js', 'CSS'],
+      image: 'https://via.placeholder.com/600x400?text=MultiBank',
       liveUrl: '#',
       githubUrl: '#'
     },
     {
       id: 2,
-      title: 'Project Two',
-      description: 'Ut enim ad minim veniam, quis nostrud exercitation ullamco laboris nisi ut aliquip.',
-      tags: ['Tag 1', 'Tag 2', 'Tag 3'],
-      image: 'https://via.placeholder.com/600x400?text=Project+2',
+      title: 'E-Commerce Back-Office',
+      description: 'Developed a React-based back-office application to streamline operations and improve efficiency. Contributed to the MVP and delivered ad hoc features.',
+      tags: ['React', 'Next.js', 'Tailwind CSS'],
+      image: 'https://via.placeholder.com/600x400?text=E-Commerce',
       liveUrl: '#',
       githubUrl: '#'
     },
     {
       id: 3,
-      title: 'Project Three',
-      description: 'Duis aute irure dolor in reprehenderit in voluptate velit esse cillum dolore eu fugiat.',
-      tags: ['Tag 1', 'Tag 2', 'Tag 3'],
-      image: 'https://via.placeholder.com/600x400?text=Project+3',
+      title: 'Performance Media Platform',
+      description: 'Developed and refined web app features to enhance user experience and platform stability. Collaborated with clients to deliver impactful solutions.',
+      tags: ['React', 'Material UI', 'MongoDB', 'Next.js'],
+      image: 'https://via.placeholder.com/600x400?text=Media+Platform',
+      liveUrl: '#',
+      githubUrl: '#'
+    },
+    {
+      id: 4,
+      title: 'BioCertica',
+      description: 'Contributed to feature development and bug fixes across multiple web apps. Played a key role in SEO optimization and Shopify app development.',
+      tags: ['React', 'CSS', 'Shopify', 'SEO'],
+      image: 'https://via.placeholder.com/600x400?text=BioCertica',
       liveUrl: '#',
       githubUrl: '#'
     }

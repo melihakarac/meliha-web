@@ -1,3 +1,7 @@
+.contact-section {
+  background-color: var(--bg-secondary);
+}
+
 .contact-content {
   display: grid;
   gap: var(--spacing-3xl);
@@ -26,31 +30,35 @@
   align-items: center;
   gap: var(--spacing-md);
   padding: var(--spacing-lg);
-  background-color: var(--bg-secondary);
+  background-color: var(--bg-primary);
   border-radius: var(--radius-lg);
   text-decoration: none;
   transition: all var(--transition-base);
 }
 
 .contact-detail-item:hover {
-  transform: translateX(8px) translateY(-2px);
-  box-shadow: var(--shadow-lg);
-  background: linear-gradient(135deg, var(--color-primary-light) 0%, var(--color-primary) 100%);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-md);
+  border-left: 3px solid var(--color-secondary);
 }
 
 .contact-detail-item:hover .contact-icon {
-  background-color: var(--color-light);
-  transform: scale(1.1) rotate(5deg);
+  transform: scale(1.1);
+}
+
+.contact-detail-item:hover .contact-detail-value {
+  color: var(--color-secondary);
 }
 
 .contact-icon {
   font-size: var(--font-size-2xl);
   width: 48px;
   height: 48px;
+  min-width: 48px;
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--color-primary-light);
+  background-color: transparent;
   border-radius: var(--radius-md);
   transition: all 0.3s ease;
 }
@@ -72,6 +80,7 @@
   font-size: var(--font-size-base);
   color: var(--color-dark);
   font-weight: 500;
+  transition: color 0.3s ease;
 }
 
 .social-links {
@@ -86,7 +95,7 @@
   display: flex;
   align-items: center;
   justify-content: center;
-  background-color: var(--bg-secondary);
+  background-color: var(--bg-primary);
   border-radius: var(--radius-md);
   color: var(--color-dark);
   text-decoration: none;
@@ -94,11 +103,10 @@
 }
 
 .social-link:hover {
-  background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
+  background-color: var(--color-secondary);
   color: var(--color-light);
-  transform: translateY(-4px) scale(1.1);
-  box-shadow: var(--shadow-lg);
-  animation: pulse 1s ease-in-out infinite;
+  transform: translateY(-3px);
+  box-shadow: 0 4px 12px rgba(221, 162, 95, 0.3);
 }
 
 .contact-form {
@@ -152,16 +160,6 @@
 @media (min-width: 768px) {
   .contact-content {
     grid-template-columns: 1fr 1fr;
-  }
-
-  .contact-details {
-    flex-direction: row;
-    flex-wrap: wrap;
-  }
-
-  .contact-detail-item {
-    flex: 1;
-    min-width: 200px;
   }
 }
 

@@ -1,5 +1,5 @@
 .experience-section {
-  background-color: var(--bg-secondary);
+  background-color: var(--bg-primary);
 }
 
 .experience-timeline {
@@ -13,6 +13,7 @@
 .experience-item {
   position: relative;
   padding: var(--spacing-xl);
+  box-shadow: 0 0 20px rgba(0, 0, 0, 0.08);
 }
 
 .experience-item::before {
@@ -97,6 +98,85 @@
 .experience-timeline.revealed .stagger-item {
   opacity: 1;
   transform: translateY(0);
+}
+
+/* Nested Projects */
+.experience-projects {
+  margin-top: var(--spacing-xl);
+  padding-top: var(--spacing-lg);
+  border-top: 1px solid var(--color-gray-light);
+}
+
+.projects-label {
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  color: var(--color-dark);
+  margin-bottom: var(--spacing-lg);
+}
+
+.experience-project {
+  padding: var(--spacing-md);
+  margin-bottom: var(--spacing-md);
+  background-color: var(--bg-secondary);
+  border-radius: var(--radius-md);
+  border-left: 3px solid var(--color-secondary);
+}
+
+.experience-project:last-child {
+  margin-bottom: 0;
+}
+
+.project-header {
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+  margin-bottom: var(--spacing-sm);
+  flex-wrap: wrap;
+  gap: var(--spacing-sm);
+}
+
+.project-name {
+  font-size: var(--font-size-base);
+  font-weight: 600;
+  color: var(--color-secondary);
+}
+
+.project-period {
+  font-size: var(--font-size-xs);
+  color: var(--color-gray);
+  text-transform: uppercase;
+  letter-spacing: 0.05em;
+}
+
+.project-description {
+  font-size: var(--font-size-sm);
+  line-height: 1.6;
+  color: var(--color-gray-dark);
+  margin-bottom: var(--spacing-sm);
+}
+
+.project-skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: var(--spacing-xs);
+}
+
+.project-skill {
+  padding: 2px var(--spacing-sm);
+  background-color: var(--color-gray-light);
+  color: var(--color-gray-dark);
+  border-radius: var(--radius-sm);
+  font-size: var(--font-size-xs);
+  font-weight: 500;
+  transition: all 0.3s ease;
+  cursor: default;
+}
+
+.project-skill:hover {
+  background-color: var(--color-secondary);
+  color: var(--color-light);
+  transform: translateY(-2px);
+  box-shadow: 0 4px 8px rgba(221, 162, 95, 0.3);
 }
 
 @media (min-width: 768px) {
