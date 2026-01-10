@@ -1,5 +1,5 @@
 import React from 'react';
-import { Section } from './common';
+import { Section, CountUpNumber } from './common';
 import { useScrollReveal } from '../hooks';
 import { highlights } from '../data';
 import { t } from '../i18n';
@@ -9,7 +9,6 @@ import './About.css';
 const About = () => {
   const textRef = useScrollReveal();
   const imageRef = useScrollReveal();
-  const highlightsRef = useScrollReveal();
 
   const descriptions = t('about.description');
 
@@ -22,10 +21,12 @@ const About = () => {
               {paragraph}
             </p>
           ))}
-          <div ref={highlightsRef} className="about-highlights scroll-reveal-scale">
+          <div className="about-highlights">
             {highlights.map((item, index) => (
-              <div key={index} className="highlight-item hover-lift">
-                <h3 className="highlight-number">{item.value}</h3>
+              <div key={index} className="highlight-item">
+                <h3 className="highlight-number">
+                  <CountUpNumber value={item.value} duration={2000} delay={index * 200} />
+                </h3>
                 <p className="highlight-label">{item.label}</p>
               </div>
             ))}

@@ -9,7 +9,6 @@ const Footer = () => {
     <footer className="footer">
       <div className="footer-content">
         <p className="footer-text">{t('footer.copyright', { year: currentYear })}</p>
-        <p className="footer-text">{t('common.builtWith')}</p>
       </div>
     </footer>
   );

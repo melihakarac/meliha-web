@@ -29,8 +29,6 @@
   text-align: center;
   padding: var(--spacing-sm);
   border-radius: var(--radius-lg);
-  transition: all 0.3s ease;
-  cursor: default;
 }
 
 .highlight-number {
@@ -41,11 +39,6 @@
   -webkit-text-fill-color: transparent;
   background-clip: text;
   margin-bottom: var(--spacing-xs);
-  transition: transform 0.3s ease;
-}
-
-.highlight-item:hover .highlight-number {
-  transform: scale(1.1);
 }
 
 .highlight-label {

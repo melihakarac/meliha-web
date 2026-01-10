@@ -51,7 +51,6 @@ const TreeNode = ({ node, level = 0, defaultOpen = false }) => {
         <span className="tree-toggle">{isFolder ? (isOpen ? '▼' : '▶') : ''}</span>
         <FileIcon type={isFolder ? 'folder' : getFileType(node.name)} />
         <span className="tree-name">{node.name}</span>
-        {node.description && <span className="tree-description">// {node.description}</span>}
       </div>
       {isFolder && isOpen && (
         <div className="tree-children">

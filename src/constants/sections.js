@@ -8,13 +8,12 @@ export const SECTIONS = {
   CONTACT: 'contact',
 };
 
-// Navigation links using translations
+// Navigation links using translations (Contact is a CTA button, not in nav)
 export const getNavLinks = () => [
   { id: SECTIONS.HERO, label: t('nav.home') },
   { id: SECTIONS.ABOUT, label: t('nav.about') },
   { id: SECTIONS.SKILLS, label: t('nav.skills') },
   { id: SECTIONS.EXPERIENCE, label: t('nav.experience') },
-  { id: SECTIONS.CONTACT, label: t('nav.contact') },
 ];
 
 // For backwards compatibility
@@ -23,5 +22,4 @@ export const NAV_LINKS = [
   { id: SECTIONS.ABOUT, label: 'About' },
   { id: SECTIONS.SKILLS, label: 'Skills' },
   { id: SECTIONS.EXPERIENCE, label: 'Experience' },
-  { id: SECTIONS.CONTACT, label: 'Contact' },
 ];

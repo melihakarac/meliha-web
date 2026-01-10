@@ -128,13 +128,6 @@
   color: var(--color-secondary);
 }
 
-.tree-description {
-  color: rgba(255, 255, 255, 0.4);
-  font-size: var(--font-size-xs);
-  font-style: italic;
-  margin-left: var(--spacing-sm);
-}
-
 .tree-children {
   animation: slideDown 0.2s ease-out;
 }
@@ -203,10 +196,6 @@
 
   .file-icon {
     font-size: 14px;
-  }
-
-  .tree-description {
-    display: none;
   }
 }
 

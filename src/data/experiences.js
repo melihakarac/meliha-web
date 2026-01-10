@@ -5,64 +5,55 @@ export const experiences = [
     company: 'Ministry of Programming',
     period: '2021 - Present',
     description:
-      'Designed and optimized React-based user interfaces, enhancing overall user experience. Collaborated with cross-functional teams to deliver scalable, high-quality solutions using agile methodologies.',
+      'Driving frontend development across multiple high-impact projects. From fintech trading platforms to e-commerce solutions, I deliver performant, scalable React applications that serve thousands of users daily.',
     skills: ['React', 'Next.js', 'TypeScript', 'CSS'],
     projects: [
       {
         name: 'MultiBank',
         period: '2024 - Present',
         description:
-          'Maintained and enhanced trading web applications handling sensitive financial data. Implemented new features with robust security and industry compliance.',
+          'Building and maintaining trading applications processing real-time financial data. Implemented security-first features meeting strict industry compliance standards.',
         skills: ['React', 'Next.js', 'CSS'],
       },
       {
-        name: 'E-Commerce Project',
+        name: 'E-Commerce Platform',
         period: '2023 - 2024',
         description:
-          'Developed a React-based back-office application to streamline operations and improve efficiency. Contributed to the MVP and delivered ad hoc features.',
+          "Architected a back-office application from MVP to production, streamlining operations for the client's team and improving workflow efficiency.",
         skills: ['React', 'Next.js', 'Tailwind CSS'],
       },
       {
-        name: 'Performance Media Project',
+        name: 'Performance Media',
         period: '2022 - 2023',
         description:
-          'Developed and refined web app features to enhance user experience and platform stability. Built custom SDKs to streamline integrations and collaborated with clients to deliver impactful solutions.',
+          'Built custom SDKs enabling seamless third-party integrations. Collaborated directly with clients to ship features that drove measurable platform growth.',
         skills: ['React', 'Material UI', 'MongoDB', 'Next.js', 'SDK Development'],
       },
       {
         name: 'BioCertica',
         period: '2021 - 2022',
         description:
-          'Contributed to feature development and bug fixes across multiple web apps. Played a key role in SEO optimization and Shopify app development.',
+          "Delivered key features across multiple web apps and led SEO optimization efforts. Developed Shopify integrations expanding the platform's e-commerce capabilities.",
         skills: ['React', 'CSS', 'Amplitude', 'Shopify', 'SEO'],
       },
     ],
   },
   {
     type: 'work',
-    title: 'Freelance Software Developer',
+    title: 'Freelance Developer',
     company: 'Upwork',
-    period: '2022',
+    period: '2020 - 2022',
     description:
-      'Contributed to a billing platform by enhancing the user interface with React, resulting in a more seamless and intuitive billing process. Collaborated within a remote team setting.',
-    skills: ['React', 'Node.js', 'Tailwind CSS'],
-  },
-  {
-    type: 'work',
-    title: 'Freelance Web Developer',
-    company: 'Upwork',
-    period: '2020 - 2021',
-    description:
-      'Designed and delivered custom UI solutions for German clients, focusing on responsive, user-friendly interfaces. Ensured smooth project execution through agile collaboration.',
-    skills: ['React', 'CSS', 'Tailwind CSS'],
+      'Partnered with international clients to deliver custom web solutions. Built responsive interfaces for a billing platform and delivered UI projects for German clients - all while collaborating remotely across time zones.',
+    skills: ['React', 'Node.js', 'Tailwind CSS', 'CSS'],
   },
   {
     type: 'education',
-    title: 'Software Development',
-    company: '"Džemal Bijedić" University of Mostar',
+    title: 'Information Technologies',
+    company: 'Džemal Bijedić University',
     period: '2017 - 2021',
     description:
-      'Studied at the Faculty of Information Technologies, focusing on software development fundamentals, algorithms, and modern programming practices.',
-    skills: ['Computer Science', 'Software Engineering', 'Problem Solving'],
+      'Built a strong foundation in computer science fundamentals, algorithms, and software engineering principles that I apply to every project today.',
+    skills: ['Computer Science', 'Algorithms', 'Software Engineering'],
   },
 ];

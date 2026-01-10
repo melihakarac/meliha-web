@@ -59,14 +59,14 @@ const Header = () => {
               </a>
             </li>
           ))}
-          <li className="nav-item">
+          <li className="nav-item nav-cta">
             <Button
               href="#contact"
               onClick={(e) => handleNavClick(e, 'contact')}
               variant="primary"
               size="sm"
             >
-              {t('common.getInTouch')}
+              {t('nav.contact')}
             </Button>
           </li>
         </ul>

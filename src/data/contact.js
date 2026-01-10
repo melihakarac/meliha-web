@@ -1,19 +1,19 @@
 export const contactInfo = [
   {
     icon: '✉️',
-    label: 'Email',
+    label: 'Drop me a line',
     value: 'meliha.karacc@gmail.com',
     link: 'mailto:meliha.karacc@gmail.com',
   },
   {
     icon: '📱',
-    label: 'Phone',
+    label: 'Give me a call',
     value: '+387 62 888 224',
     link: 'tel:+38762888224',
   },
   {
     icon: '📍',
-    label: 'Location',
+    label: 'Based in',
     value: 'Bosnia and Herzegovina',
     link: '#',
   },

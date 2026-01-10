@@ -1,4 +1,4 @@
-import React, { useState } from 'react';
+import React, { useState, useEffect } from 'react';
 import { Section, Button } from './common';
 import { useScrollReveal, useFormValidation } from '../hooks';
 import { contactInfo, socialLinks } from '../data';
@@ -10,10 +10,14 @@ import './Contact.css';
 
 // Form field configuration
 const formFields = [
-  { name: 'name', type: 'text', placeholder: 'John Doe' },
-  { name: 'email', type: 'email', placeholder: 'john@example.com' },
-  { name: 'subject', type: 'text', placeholder: 'Project Inquiry' },
-  { name: 'message', type: 'textarea', placeholder: 'Tell me about your project...' },
+  { name: 'name', type: 'text', placeholder: 'Jane Smith' },
+  { name: 'email', type: 'email', placeholder: 'jane@company.com' },
+  { name: 'subject', type: 'text', placeholder: 'New project opportunity' },
+  {
+    name: 'message',
+    type: 'textarea',
+    placeholder: 'Hi Meliha! I came across your portfolio and...',
+  },
 ];
 
 const initialFormValues = {
@@ -34,6 +38,26 @@ const Contact = () => {
 
   const [isSubmitting, setIsSubmitting] = useState(false);
   const [submitStatus, setSubmitStatus] = useState(null);
+  const [isStatusHiding, setIsStatusHiding] = useState(false);
+
+  // Auto-dismiss success/error message after 5 seconds
+  useEffect(() => {
+    if (submitStatus) {
+      const hideTimer = setTimeout(() => {
+        setIsStatusHiding(true);
+      }, 5000);
+
+      const removeTimer = setTimeout(() => {
+        setSubmitStatus(null);
+        setIsStatusHiding(false);
+      }, 5300);
+
+      return () => {
+        clearTimeout(hideTimer);
+        clearTimeout(removeTimer);
+      };
+    }
+  }, [submitStatus]);
 
   const handleSubmit = async (e) => {
     e.preventDefault();
@@ -90,20 +114,6 @@ const Contact = () => {
               </a>
             ))}
           </div>
-          <div className="social-links">
-            {socialLinks.map((link, index) => (
-              <a
-                key={index}
-                href={link.url}
-                target="_blank"
-                rel="noopener noreferrer"
-                className="social-link"
-                aria-label={link.name}
-              >
-                <Icon name={link.icon} size={24} />
-              </a>
-            ))}
-          </div>
         </div>
         <form
           ref={formRef}
@@ -146,12 +156,30 @@ const Contact = () => {
             {isSubmitting ? 'Sending...' : t('common.sendMessage')}
           </Button>
           {submitStatus === 'success' && (
-            <p className="form-status form-status--success">{t('contact.successMessage')}</p>
+            <p className={`form-status form-status--success ${isStatusHiding ? 'hiding' : ''}`}>
+              {t('contact.successMessage')}
+            </p>
           )}
           {submitStatus === 'error' && (
-            <p className="form-status form-status--error">{t('contact.errorMessage')}</p>
+            <p className={`form-status form-status--error ${isStatusHiding ? 'hiding' : ''}`}>
+              {t('contact.errorMessage')}
+            </p>
           )}
         </form>
+        <div className="social-links">
+          {socialLinks.map((link, index) => (
+            <a
+              key={index}
+              href={link.url}
+              target="_blank"
+              rel="noopener noreferrer"
+              className="social-link"
+              aria-label={link.name}
+            >
+              <Icon name={link.icon} size={24} />
+            </a>
+          ))}
+        </div>
       </div>
     </Section>
   );
