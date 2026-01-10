@@ -61,6 +61,7 @@
   background-color: transparent;
   border-radius: var(--radius-md);
   transition: all 0.3s ease;
+  user-select: none;
 }
 
 .contact-detail-content {
@@ -74,6 +75,7 @@
   color: var(--color-gray);
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  user-select: none;
 }
 
 .contact-detail-value {
@@ -98,6 +100,7 @@
   background-color: var(--bg-primary);
   border-radius: var(--radius-md);
   color: var(--color-dark);
+  user-select: none;
   text-decoration: none;
   transition: all var(--transition-base);
 }

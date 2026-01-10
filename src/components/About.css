@@ -46,6 +46,7 @@
   color: var(--color-gray);
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  user-select: none;
 }
 
 .about-image {

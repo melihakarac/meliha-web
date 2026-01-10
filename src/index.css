@@ -8,6 +8,16 @@
   box-sizing: border-box;
 }
 
+::selection {
+  background-color: var(--color-secondary);
+  color: var(--color-light);
+}
+
+::-moz-selection {
+  background-color: var(--color-secondary);
+  color: var(--color-light);
+}
+
 :root {
   font-family: var(--font-family-primary);
   -webkit-font-smoothing: antialiased;

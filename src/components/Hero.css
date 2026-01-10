@@ -99,6 +99,7 @@
   font-size: var(--font-size-sm);
   transition: color var(--transition-base);
   animation: pulse 2s infinite;
+  user-select: none;
 }
 
 .hero-scroll a:hover {

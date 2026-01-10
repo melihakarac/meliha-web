@@ -61,6 +61,7 @@
   color: var(--color-gray);
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  user-select: none;
 }
 
 .experience-description {
@@ -88,6 +89,7 @@
   font-weight: 600;
   color: var(--color-dark);
   margin-bottom: var(--spacing-lg);
+  user-select: none;
 }
 
 .experience-project {
@@ -122,6 +124,7 @@
   color: var(--color-gray);
   text-transform: uppercase;
   letter-spacing: 0.05em;
+  user-select: none;
 }
 
 .project-description {
