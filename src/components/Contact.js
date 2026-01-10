@@ -1,4 +1,5 @@
 import React, { useState, useEffect } from 'react';
+import ReactDOM from 'react-dom';
 import { Section, Button } from './common';
 import { useScrollReveal, useFormValidation } from '../hooks';
 import { contactInfo, socialLinks } from '../data';
@@ -7,6 +8,14 @@ import { Icon } from '../assets/icons';
 import { getGoogleFormUrl, buildGoogleFormData } from '../config';
 import { contactFormRules } from '../utils';
 import './Contact.css';
+
+// Toast component rendered via portal to ensure fixed positioning works
+const Toast = ({ type, message, isHiding }) => {
+  return ReactDOM.createPortal(
+    <p className={`form-status form-status--${type} ${isHiding ? 'hiding' : ''}`}>{message}</p>,
+    document.body
+  );
+};
 
 // Form field configuration
 const formFields = [
@@ -155,17 +164,13 @@ const Contact = () => {
           <Button type="submit" variant="primary" size="lg" disabled={isSubmitting || !isValid}>
             {isSubmitting ? 'Sending...' : t('common.sendMessage')}
           </Button>
-          {submitStatus === 'success' && (
-            <p className={`form-status form-status--success ${isStatusHiding ? 'hiding' : ''}`}>
-              {t('contact.successMessage')}
-            </p>
-          )}
-          {submitStatus === 'error' && (
-            <p className={`form-status form-status--error ${isStatusHiding ? 'hiding' : ''}`}>
-              {t('contact.errorMessage')}
-            </p>
-          )}
         </form>
+        {submitStatus === 'success' && (
+          <Toast type="success" message={t('contact.successMessage')} isHiding={isStatusHiding} />
+        )}
+        {submitStatus === 'error' && (
+          <Toast type="error" message={t('contact.errorMessage')} isHiding={isStatusHiding} />
+        )}
         <div className="social-links">
           {socialLinks.map((link, index) => (
             <a

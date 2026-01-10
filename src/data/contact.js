@@ -6,15 +6,15 @@ export const contactInfo = [
     link: 'mailto:meliha.karacc@gmail.com',
   },
   {
-    icon: '📱',
-    label: 'Give me a call',
-    value: '+387 62 888 224',
-    link: 'tel:+38762888224',
-  },
-  {
     icon: '📍',
     label: 'Based in',
     value: 'Bosnia and Herzegovina',
+    link: '#',
+  },
+  {
+    icon: '🤝',
+    label: 'Availability',
+    value: 'Open for collaboration',
     link: '#',
   },
 ];
