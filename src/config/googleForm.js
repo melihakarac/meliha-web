@@ -1,18 +1,16 @@
 /**
  * Google Form Configuration
  * Form submissions will be sent to your Google Form and stored in Google Sheets
+ * Values are loaded from environment variables (see .env.example)
  */
 
 export const GOOGLE_FORM_CONFIG = {
-  // Your Google Form ID
-  formId: '1FAIpQLSfRLpkmB_2tOr8LJ-9HBlm5NWEcpT-d6BIKEwoAeOb113hBxg',
-
-  // Entry IDs for each form field
+  formId: process.env.REACT_APP_GOOGLE_FORM_ID,
   fields: {
-    name: 'entry.1037547144',
-    email: 'entry.1714862733',
-    subject: 'entry.1460007839',
-    message: 'entry.125925536',
+    name: process.env.REACT_APP_FORM_ENTRY_NAME,
+    email: process.env.REACT_APP_FORM_ENTRY_EMAIL,
+    subject: process.env.REACT_APP_FORM_ENTRY_SUBJECT,
+    message: process.env.REACT_APP_FORM_ENTRY_MESSAGE,
   },
 };
 

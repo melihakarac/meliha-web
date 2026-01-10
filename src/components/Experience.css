@@ -76,11 +76,6 @@
   gap: var(--spacing-sm);
 }
 
-.experience-timeline.revealed .stagger-item {
-  opacity: 1;
-  transform: translateY(0);
-}
-
 /* Nested Projects */
 .experience-projects {
   margin-top: var(--spacing-xl);

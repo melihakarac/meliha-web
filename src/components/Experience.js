@@ -1,12 +1,12 @@
 import React from 'react';
 import { Section, Card, SkillTag } from './common';
-import { useScrollReveal } from '../hooks';
+import { useStaggerReveal } from '../hooks';
 import { experiences } from '../data';
 import { t } from '../i18n';
 import './Experience.css';
 
 const Experience = () => {
-  const timelineRef = useScrollReveal();
+  const timelineRef = useStaggerReveal({ staggerDelay: 200 });
 
   return (
     <Section
@@ -15,12 +15,11 @@ const Experience = () => {
       title={t('experience.title')}
       className="experience-section"
     >
-      <div ref={timelineRef} className="experience-timeline scroll-reveal">
+      <div ref={timelineRef} className="experience-timeline">
         {experiences.map((item, index) => (
           <Card
             key={index}
             className={`experience-item experience-${item.type} stagger-item hover-lift`}
-            style={{ transitionDelay: `${index * 0.2}s` }}
           >
             <div className="experience-header">
               <h3 className="experience-title">{item.title}</h3>
