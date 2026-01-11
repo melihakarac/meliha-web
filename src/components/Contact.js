@@ -5,6 +5,7 @@ import { useScrollReveal, useFormValidation } from '../hooks';
 import { contactInfo, socialLinks, formFields, getInitialFormValues } from '../data';
 import { contactFormRules } from '../utils';
 import { getGoogleFormUrl, buildGoogleFormData } from '../config';
+import { ANIMATION_TIMING } from '../constants';
 import { Icon } from '../assets/icons';
 import { t } from '../i18n';
 
@@ -27,12 +28,12 @@ const Contact = () => {
     if (submitStatus) {
       const hideTimer = setTimeout(() => {
         setIsStatusHiding(true);
-      }, 5000);
+      }, ANIMATION_TIMING.TOAST_HIDE_DELAY);
 
       const removeTimer = setTimeout(() => {
         setSubmitStatus(null);
         setIsStatusHiding(false);
-      }, 5300);
+      }, ANIMATION_TIMING.TOAST_REMOVE_DELAY);
 
       return () => {
         clearTimeout(hideTimer);
@@ -135,7 +136,7 @@ const Contact = () => {
             </div>
           ))}
           <Button type="submit" variant="primary" size="lg" disabled={isSubmitting || !isValid}>
-            {isSubmitting ? 'Sending...' : t('common.sendMessage')}
+            {isSubmitting ? t('common.sending') : t('common.sendMessage')}
           </Button>
         </form>
         {submitStatus === 'success' && (

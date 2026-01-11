@@ -2,6 +2,7 @@
   "common": {
     "scrollDown": "Explore",
     "sendMessage": "Send Message",
+    "sending": "Sending...",
     "getInTouch": "Let's Talk",
     "projectsLabel": "Key Projects:",
     "builtWith": "Crafted with React & passion"
@@ -42,7 +43,8 @@
   },
   "skills": {
     "subtitle": "What I Work With",
-    "title": "My Toolkit"
+    "title": "My Toolkit",
+    "treeTitle": "meliha toolkit"
   },
   "experience": {
     "subtitle": "Where I've Been",

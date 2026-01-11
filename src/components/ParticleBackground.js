@@ -1,5 +1,6 @@
 import React, { useRef, useEffect } from 'react';
 
+import { PARTICLE_CONFIG } from '../config';
 import './ParticleBackground.css';
 
 const ParticleBackground = () => {
@@ -13,13 +14,6 @@ const ParticleBackground = () => {
     const ctx = canvas.getContext('2d');
     const parent = canvas.parentElement;
 
-    const colors = [
-      'rgba(93, 109, 55, 0.6)',
-      'rgba(221, 162, 95, 0.6)',
-      'rgba(187, 107, 37, 0.5)',
-      'rgba(40, 53, 24, 0.4)',
-    ];
-
     const resizeCanvas = () => {
       canvas.width = parent.offsetWidth;
       canvas.height = parent.offsetHeight;
@@ -27,17 +21,19 @@ const ParticleBackground = () => {
     };
 
     const initParticles = () => {
-      const particleCount = Math.floor((canvas.width * canvas.height) / 15000);
+      const particleCount = Math.floor((canvas.width * canvas.height) / PARTICLE_CONFIG.DENSITY);
       particlesRef.current = [];
 
       for (let i = 0; i < particleCount; i++) {
         particlesRef.current.push({
           x: Math.random() * canvas.width,
           y: Math.random() * canvas.height,
-          vx: (Math.random() - 0.5) * 0.5,
-          vy: (Math.random() - 0.5) * 0.5,
-          radius: Math.random() * 2 + 1,
-          color: colors[Math.floor(Math.random() * colors.length)],
+          vx: (Math.random() - 0.5) * PARTICLE_CONFIG.VELOCITY_MULTIPLIER,
+          vy: (Math.random() - 0.5) * PARTICLE_CONFIG.VELOCITY_MULTIPLIER,
+          radius:
+            Math.random() * (PARTICLE_CONFIG.MAX_RADIUS - PARTICLE_CONFIG.MIN_RADIUS) +
+            PARTICLE_CONFIG.MIN_RADIUS,
+          color: PARTICLE_CONFIG.COLORS[Math.floor(Math.random() * PARTICLE_CONFIG.COLORS.length)],
         });
       }
     };
@@ -50,22 +46,21 @@ const ParticleBackground = () => {
     };
 
     const drawConnections = (particle, index) => {
-      const connectionDistance = 150;
-      const mouseDistance = 200;
-
       for (let i = index + 1; i < particlesRef.current.length; i++) {
         const other = particlesRef.current[i];
         const dx = particle.x - other.x;
         const dy = particle.y - other.y;
         const distance = Math.sqrt(dx * dx + dy * dy);
 
-        if (distance < connectionDistance) {
-          const opacity = (1 - distance / connectionDistance) * 0.3;
+        if (distance < PARTICLE_CONFIG.CONNECTION_DISTANCE) {
+          const opacity =
+            (1 - distance / PARTICLE_CONFIG.CONNECTION_DISTANCE) *
+            PARTICLE_CONFIG.CONNECTION_OPACITY_MULTIPLIER;
           ctx.beginPath();
           ctx.moveTo(particle.x, particle.y);
           ctx.lineTo(other.x, other.y);
-          ctx.strokeStyle = `rgba(93, 109, 55, ${opacity})`;
-          ctx.lineWidth = 0.5;
+          ctx.strokeStyle = `rgba(${PARTICLE_CONFIG.CONNECTION_COLOR_RGB}, ${opacity})`;
+          ctx.lineWidth = PARTICLE_CONFIG.CONNECTION_LINE_WIDTH;
           ctx.stroke();
         }
       }
@@ -75,13 +70,15 @@ const ParticleBackground = () => {
         const dy = particle.y - mouseRef.current.y;
         const distance = Math.sqrt(dx * dx + dy * dy);
 
-        if (distance < mouseDistance) {
-          const opacity = (1 - distance / mouseDistance) * 0.5;
+        if (distance < PARTICLE_CONFIG.MOUSE_DISTANCE) {
+          const opacity =
+            (1 - distance / PARTICLE_CONFIG.MOUSE_DISTANCE) *
+            PARTICLE_CONFIG.MOUSE_CONNECTION_OPACITY_MULTIPLIER;
           ctx.beginPath();
           ctx.moveTo(particle.x, particle.y);
           ctx.lineTo(mouseRef.current.x, mouseRef.current.y);
-          ctx.strokeStyle = `rgba(221, 162, 95, ${opacity})`;
-          ctx.lineWidth = 1;
+          ctx.strokeStyle = `rgba(${PARTICLE_CONFIG.MOUSE_CONNECTION_COLOR_RGB}, ${opacity})`;
+          ctx.lineWidth = PARTICLE_CONFIG.MOUSE_LINE_WIDTH;
           ctx.stroke();
         }
       }
@@ -92,23 +89,23 @@ const ParticleBackground = () => {
         const dx = mouseRef.current.x - particle.x;
         const dy = mouseRef.current.y - particle.y;
         const distance = Math.sqrt(dx * dx + dy * dy);
-        const maxDistance = 200;
 
-        if (distance < maxDistance && distance > 0) {
-          const force = ((maxDistance - distance) / maxDistance) * 0.02;
+        if (distance < PARTICLE_CONFIG.MOUSE_DISTANCE && distance > 0) {
+          const force =
+            ((PARTICLE_CONFIG.MOUSE_DISTANCE - distance) / PARTICLE_CONFIG.MOUSE_DISTANCE) *
+            PARTICLE_CONFIG.MOUSE_FORCE;
           particle.vx += (dx / distance) * force;
           particle.vy += (dy / distance) * force;
         }
       }
 
-      particle.vx *= 0.99;
-      particle.vy *= 0.99;
+      particle.vx *= PARTICLE_CONFIG.FRICTION;
+      particle.vy *= PARTICLE_CONFIG.FRICTION;
 
-      const maxSpeed = 2;
       const speed = Math.sqrt(particle.vx * particle.vx + particle.vy * particle.vy);
-      if (speed > maxSpeed) {
-        particle.vx = (particle.vx / speed) * maxSpeed;
-        particle.vy = (particle.vy / speed) * maxSpeed;
+      if (speed > PARTICLE_CONFIG.MAX_SPEED) {
+        particle.vx = (particle.vx / speed) * PARTICLE_CONFIG.MAX_SPEED;
+        particle.vy = (particle.vy / speed) * PARTICLE_CONFIG.MAX_SPEED;
       }
 
       particle.x += particle.vx;
@@ -136,12 +133,21 @@ const ParticleBackground = () => {
           0,
           mouseRef.current.x,
           mouseRef.current.y,
-          100
+          PARTICLE_CONFIG.MOUSE_GRADIENT_RADIUS
         );
-        gradient.addColorStop(0, 'rgba(221, 162, 95, 0.1)');
-        gradient.addColorStop(1, 'rgba(221, 162, 95, 0)');
+        gradient.addColorStop(
+          0,
+          `rgba(${PARTICLE_CONFIG.MOUSE_GRADIENT_COLOR_RGB}, ${PARTICLE_CONFIG.MOUSE_GRADIENT_MAX_OPACITY})`
+        );
+        gradient.addColorStop(1, `rgba(${PARTICLE_CONFIG.MOUSE_GRADIENT_COLOR_RGB}, 0)`);
         ctx.beginPath();
-        ctx.arc(mouseRef.current.x, mouseRef.current.y, 100, 0, Math.PI * 2);
+        ctx.arc(
+          mouseRef.current.x,
+          mouseRef.current.y,
+          PARTICLE_CONFIG.MOUSE_GRADIENT_RADIUS,
+          0,
+          Math.PI * 2
+        );
         ctx.fillStyle = gradient;
         ctx.fill();
       }

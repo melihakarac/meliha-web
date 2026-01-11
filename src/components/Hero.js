@@ -4,6 +4,7 @@ import { Container } from './common';
 import ParticleBackground from './ParticleBackground';
 import { useTypewriter, useSmoothScroll } from '../hooks';
 import { ChevronDownIcon } from '../assets/icons';
+import { HERO_TEXT_BREAKPOINTS } from '../utils';
 import { t } from '../i18n';
 
 import './Hero.css';
@@ -14,24 +15,23 @@ const Hero = () => {
   const { handleScrollClick } = useSmoothScroll();
 
   const renderText = () => {
-    const helloLength = 5;
-    const melihaStart = 11;
+    const { HELLO_LENGTH, MELIHA_START } = HERO_TEXT_BREAKPOINTS;
 
-    if (displayText.length <= helloLength) {
+    if (displayText.length <= HELLO_LENGTH) {
       return <i>{displayText}</i>;
-    } else if (displayText.length <= melihaStart) {
+    } else if (displayText.length <= MELIHA_START) {
       return (
         <>
-          <i>{displayText.slice(0, helloLength)}</i>
-          {displayText.slice(helloLength)}
+          <i>{displayText.slice(0, HELLO_LENGTH)}</i>
+          {displayText.slice(HELLO_LENGTH)}
         </>
       );
     } else {
       return (
         <>
-          <i>{displayText.slice(0, helloLength)}</i>
-          {displayText.slice(helloLength, melihaStart)}
-          <span className="gradient-text">{displayText.slice(melihaStart)}</span>
+          <i>{displayText.slice(0, HELLO_LENGTH)}</i>
+          {displayText.slice(HELLO_LENGTH, MELIHA_START)}
+          <span className="gradient-text">{displayText.slice(MELIHA_START)}</span>
         </>
       );
     }
