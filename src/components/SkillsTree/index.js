@@ -1,10 +1,10 @@
 import React, { useState } from 'react';
 
-import { skillsStructure } from '../data';
-import { fileIcons, getFileType } from '../constants';
-import { t } from '../i18n';
+import { skillsStructure } from 'data';
+import { fileIcons, getFileType } from 'constants';
+import { t } from 'i18n';
 
-import './SkillsTree.css';
+import './index.css';
 
 const FileIcon = ({ type }) => (
   <span className="file-icon">{fileIcons[type] || fileIcons.file}</span>

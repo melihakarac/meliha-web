@@ -1,8 +1,8 @@
 import React from 'react';
 
-import { t } from '../i18n';
+import { t } from '../../i18n';
 
-import './Footer.css';
+import './index.css';
 
 const Footer = () => {
   const currentYear = new Date().getFullYear();

@@ -1,15 +1,15 @@
 import React, { useState, useEffect } from 'react';
 
-import { Section, Button, Toast } from './common';
-import { useScrollReveal, useFormValidation } from '../hooks';
-import { contactInfo, socialLinks, formFields, getInitialFormValues } from '../data';
-import { contactFormRules } from '../utils';
-import { getGoogleFormUrl, buildGoogleFormData } from '../config';
-import { ANIMATION_TIMING } from '../constants';
-import { Icon } from '../assets/icons';
-import { t } from '../i18n';
+import { Section, Button, Toast } from 'components/common';
+import { useScrollReveal, useFormValidation } from 'hooks';
+import { contactInfo, socialLinks, formFields, getInitialFormValues } from 'data';
+import { contactFormRules } from 'utils';
+import { getGoogleFormUrl, buildGoogleFormData } from 'config';
+import { ANIMATION_TIMING } from 'constants';
+import { Icon } from 'assets/icons';
+import { t } from 'i18n';
 
-import './Contact.css';
+import './index.css';
 
 const Contact = () => {
   const contentRef = useScrollReveal();
