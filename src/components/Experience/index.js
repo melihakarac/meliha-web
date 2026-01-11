@@ -1,12 +1,12 @@
 import React from 'react';
 
-import { Section, Card, SkillTag } from './common';
-import { useStaggerReveal } from '../hooks';
-import { experiences } from '../data';
-import { ANIMATION_TIMING } from '../constants';
-import { t } from '../i18n';
+import { Section, Card, SkillTag } from 'components/common';
+import { useStaggerReveal } from 'hooks';
+import { experiences } from 'data';
+import { ANIMATION_TIMING } from 'constants';
+import { t } from 'i18n';
 
-import './Experience.css';
+import './index.css';
 
 const Experience = () => {
   const timelineRef = useStaggerReveal({ staggerDelay: ANIMATION_TIMING.STAGGER_DELAY });

@@ -1,13 +1,13 @@
 import React from 'react';
 
-import { Container } from './common';
-import ParticleBackground from './ParticleBackground';
-import { useTypewriter, useSmoothScroll } from '../hooks';
-import { ChevronDownIcon } from '../assets/icons';
-import { HERO_TEXT_BREAKPOINTS } from '../utils';
-import { t } from '../i18n';
+import { Container } from 'components/common';
+import ParticleBackground from 'components/ParticleBackground';
+import { useTypewriter, useSmoothScroll } from 'hooks';
+import { ChevronDownIcon } from 'assets/icons';
+import { HERO_TEXT_BREAKPOINTS } from 'utils';
+import { t } from 'i18n';
 
-import './Hero.css';
+import './index.css';
 
 const Hero = () => {
   const heroText = t('hero.greeting');

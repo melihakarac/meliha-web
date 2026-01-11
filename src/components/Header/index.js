@@ -1,10 +1,10 @@
 import React, { useState, useEffect, useMemo, useCallback } from 'react';
 
-import { useSmoothScroll } from '../hooks';
-import { getNavLinks, UI_CONFIG } from '../constants';
-import { t } from '../i18n';
+import { useSmoothScroll } from 'hooks';
+import { getNavLinks, UI_CONFIG } from 'constants';
+import { t } from 'i18n';
 
-import './Header.css';
+import './index.css';
 
 const Header = () => {
   const [isMenuOpen, setIsMenuOpen] = useState(false);

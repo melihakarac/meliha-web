@@ -1,13 +1,13 @@
 import React from 'react';
 
-import { Section, CountUpNumber } from './common';
-import { useScrollReveal } from '../hooks';
-import { highlights } from '../data';
-import { ANIMATION_TIMING, getStaggerDelay } from '../constants';
-import { t } from '../i18n';
-import profileImage from '../assets/images/profile.png';
+import { Section, CountUpNumber } from 'components/common';
+import { useScrollReveal } from 'hooks';
+import { highlights } from 'data';
+import { ANIMATION_TIMING, getStaggerDelay } from 'constants';
+import { t } from 'i18n';
+import profileImage from 'assets/images/profile.png';
 
-import './About.css';
+import './index.css';
 
 const About = () => {
   const textRef = useScrollReveal();

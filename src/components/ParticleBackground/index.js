@@ -1,7 +1,7 @@
 import React, { useRef, useEffect } from 'react';
 
-import { PARTICLE_CONFIG } from '../config';
-import './ParticleBackground.css';
+import { PARTICLE_CONFIG } from 'config';
+import './index.css';
 
 const ParticleBackground = () => {
   const canvasRef = useRef(null);
