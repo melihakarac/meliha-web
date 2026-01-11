@@ -3,6 +3,7 @@ import React from 'react';
 import { Section, CountUpNumber } from './common';
 import { useScrollReveal } from '../hooks';
 import { highlights } from '../data';
+import { ANIMATION_TIMING, getStaggerDelay } from '../constants';
 import { t } from '../i18n';
 import profileImage from '../assets/images/profile.png';
 
@@ -27,7 +28,11 @@ const About = () => {
             {highlights.map((item, index) => (
               <div key={index} className="highlight-item">
                 <h3 className="highlight-number">
-                  <CountUpNumber value={item.value} duration={2000} delay={index * 200} />
+                  <CountUpNumber
+                    value={item.value}
+                    duration={ANIMATION_TIMING.COUNT_UP_DURATION}
+                    delay={getStaggerDelay(index, ANIMATION_TIMING.COUNT_UP_STAGGER_DELAY)}
+                  />
                 </h3>
                 <p className="highlight-label">{item.label}</p>
               </div>

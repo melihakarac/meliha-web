@@ -2,6 +2,7 @@ import React, { useState } from 'react';
 
 import { skillsStructure } from '../data';
 import { fileIcons, getFileType } from '../constants';
+import { t } from '../i18n';
 
 import './SkillsTree.css';
 
@@ -51,7 +52,7 @@ const SkillsTree = () => {
           <span className="dot yellow"></span>
           <span className="dot green"></span>
         </div>
-        <span className="tree-title">meliha toolkit</span>
+        <span className="tree-title">{t('skills.treeTitle')}</span>
       </div>
       <div className="tree-content">
         <TreeNode node={skillsStructure} defaultOpen={true} />

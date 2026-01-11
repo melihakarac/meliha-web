@@ -3,12 +3,13 @@ import React from 'react';
 import { Section, Card, SkillTag } from './common';
 import { useStaggerReveal } from '../hooks';
 import { experiences } from '../data';
+import { ANIMATION_TIMING } from '../constants';
 import { t } from '../i18n';
 
 import './Experience.css';
 
 const Experience = () => {
-  const timelineRef = useStaggerReveal({ staggerDelay: 200 });
+  const timelineRef = useStaggerReveal({ staggerDelay: ANIMATION_TIMING.STAGGER_DELAY });
 
   return (
     <Section
