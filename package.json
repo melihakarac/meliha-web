@@ -15,6 +15,13 @@
     "start": "react-scripts start",
     "build": "react-scripts build",
     "test": "react-scripts test",
+    "test:unit": "react-scripts test --testPathPattern='\\.test\\.js$' --watchAll=false",
+    "test:integration": "react-scripts test --testPathPattern='\\.integration\\.test\\.js$' --watchAll=false",
+    "test:all": "react-scripts test --watchAll=false --coverage",
+    "test:watch": "react-scripts test",
+    "test:e2e": "cypress run",
+    "test:e2e:open": "cypress open",
+    "test:e2e:headless": "cypress run --headless",
     "eject": "react-scripts eject",
     "prepare": "husky"
   },
@@ -37,6 +44,8 @@
     ]
   },
   "devDependencies": {
+    "@testing-library/cypress": "^10.1.0",
+    "cypress": "^15.9.0",
     "husky": "^9.1.7",
     "lint-staged": "^16.2.7",
     "prettier": "^3.7.4"

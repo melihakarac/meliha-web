@@ -3,17 +3,17 @@
  */
 import React from 'react';
 import { render } from '@testing-library/react';
-import { I18nextProvider } from 'react-i18next';
-import i18n from '../i18n';
 
 /**
- * Custom render function that includes i18n provider
+ * Custom render function for components (i18n is imported directly, no provider needed)
  * @param {React.ReactElement} ui - The component to render
  * @param {Object} options - Additional render options
  * @returns {Object} Render result
  */
 export const renderWithI18n = (ui, options = {}) => {
-  return render(<I18nextProvider i18n={i18n}>{ui}</I18nextProvider>, options);
+  // Since i18n uses a simple t function imported directly, no provider is needed
+  // This function is kept for consistency and future extensibility
+  return render(ui, options);
 };
 
 /**
