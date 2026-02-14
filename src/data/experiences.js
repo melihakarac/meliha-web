@@ -51,7 +51,7 @@ export const experiences = [
     type: 'education',
     title: 'Information Technologies',
     company: 'Džemal Bijedić University',
-    period: '2017 - 2021',
+    period: '2017 - 2022',
     description:
       'Built a strong foundation in computer science fundamentals, algorithms, and software engineering principles that I apply to every project today.',
     skills: ['Computer Science', 'Algorithms', 'Software Engineering'],

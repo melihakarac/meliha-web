@@ -20,10 +20,7 @@ const Experience = () => {
     >
       <div ref={timelineRef} className="experience-timeline">
         {experiences.map((item, index) => (
-          <Card
-            key={index}
-            className={`experience-item experience-${item.type} stagger-item hover-lift`}
-          >
+          <Card key={index} className={`experience-item experience-${item.type} stagger-item`}>
             <div className="experience-header">
               <h3 className="experience-title">{item.title}</h3>
               <span className="experience-company">{item.company}</span>

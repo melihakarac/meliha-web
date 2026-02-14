@@ -24,6 +24,9 @@ const ParticleBackground = () => {
       const particleCount = Math.floor((canvas.width * canvas.height) / PARTICLE_CONFIG.DENSITY);
       particlesRef.current = [];
 
+      // Use current colors from config to ensure latest colors are used
+      const colors = PARTICLE_CONFIG.COLORS;
+
       for (let i = 0; i < particleCount; i++) {
         particlesRef.current.push({
           x: Math.random() * canvas.width,
@@ -33,7 +36,7 @@ const ParticleBackground = () => {
           radius:
             Math.random() * (PARTICLE_CONFIG.MAX_RADIUS - PARTICLE_CONFIG.MIN_RADIUS) +
             PARTICLE_CONFIG.MIN_RADIUS,
-          color: PARTICLE_CONFIG.COLORS[Math.floor(Math.random() * PARTICLE_CONFIG.COLORS.length)],
+          color: colors[Math.floor(Math.random() * colors.length)],
         });
       }
     };
@@ -56,6 +59,8 @@ const ParticleBackground = () => {
           const opacity =
             (1 - distance / PARTICLE_CONFIG.CONNECTION_DISTANCE) *
             PARTICLE_CONFIG.CONNECTION_OPACITY_MULTIPLIER;
+
+          // Use primary color for regular connections (from palette)
           ctx.beginPath();
           ctx.moveTo(particle.x, particle.y);
           ctx.lineTo(other.x, other.y);
@@ -181,7 +186,8 @@ const ParticleBackground = () => {
         cancelAnimationFrame(animationRef.current);
       }
     };
-  }, []);
+    // eslint-disable-next-line react-hooks/exhaustive-deps
+  }, [PARTICLE_CONFIG.COLORS.join(',')]); // Reinitialize when colors change
 
   return <canvas ref={canvasRef} className="particle-background" />;
 };

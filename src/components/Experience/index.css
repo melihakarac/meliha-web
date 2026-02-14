@@ -67,7 +67,8 @@
 .experience-description {
   font-size: var(--font-size-base);
   line-height: 1.7;
-  color: var(--color-gray-dark);
+  color: var(--text);
+  font-weight: 400;
   margin-bottom: var(--spacing-lg);
 }
 
@@ -75,6 +76,15 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--spacing-sm);
+}
+
+/* Style tags inside main experience items - gray text */
+.experience-item .skill-tag {
+  color: var(--color-gray);
+}
+
+.experience-item .skill-tag:hover {
+  color: var(--color-light);
 }
 
 /* Nested Projects */
@@ -130,7 +140,8 @@
 .project-description {
   font-size: var(--font-size-sm);
   line-height: 1.6;
-  color: var(--color-gray-dark);
+  color: var(--text);
+  font-weight: 400;
   margin-bottom: var(--spacing-sm);
 }
 
@@ -138,6 +149,15 @@
   display: flex;
   flex-wrap: wrap;
   gap: var(--spacing-xs);
+}
+
+/* Style tags inside experience projects - gray text */
+.experience-project .skill-tag {
+  color: var(--color-gray);
+}
+
+.experience-project .skill-tag:hover {
+  color: var(--color-light);
 }
 
 @media (min-width: 768px) {

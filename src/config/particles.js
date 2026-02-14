@@ -30,14 +30,17 @@ export const PARTICLE_CONFIG = {
   MOUSE_LINE_WIDTH: 1,
 
   // Colors (using theme colors in rgba format)
+  // Primary: #8ea1d8 (142, 161, 216), Secondary: #492d82 (73, 45, 130), Accent: #8f53c4 (143, 83, 196)
+  // Text: #ebedf8 (235, 237, 248)
   COLORS: [
-    'rgba(93, 109, 55, 0.6)',
-    'rgba(221, 162, 95, 0.6)',
-    'rgba(187, 107, 37, 0.5)',
-    'rgba(40, 53, 24, 0.4)',
+    'rgba(142, 161, 216, 0.7)', // Primary blue
+    'rgba(73, 45, 130, 0.7)', // Secondary purple
+    'rgba(143, 83, 196, 0.6)', // Accent purple
+    'rgba(142, 161, 216, 0.5)', // Primary blue lighter
+    'rgba(235, 237, 248, 0.4)', // Text color (light)
   ],
-  // Base RGB values for connection colors
-  CONNECTION_COLOR_RGB: '93, 109, 55',
-  MOUSE_CONNECTION_COLOR_RGB: '221, 162, 95',
-  MOUSE_GRADIENT_COLOR_RGB: '221, 162, 95',
+  // Base RGB values for connection colors - using palette colors
+  CONNECTION_COLOR_RGB: '142, 161, 216', // Primary blue
+  MOUSE_CONNECTION_COLOR_RGB: '143, 83, 196', // Accent purple
+  MOUSE_GRADIENT_COLOR_RGB: '143, 83, 196', // Accent purple
 };
