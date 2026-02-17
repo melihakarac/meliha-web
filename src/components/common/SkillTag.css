@@ -2,8 +2,9 @@
 .skill-tag {
   display: inline-block;
   padding: var(--spacing-xs) var(--spacing-md);
-  background-color: var(--color-gray-light);
-  color: var(--color-gray-dark);
+  background-color: rgba(142, 161, 216, 0.15);
+  color: var(--text);
+  border: 1px solid rgba(142, 161, 216, 0.3);
   border-radius: var(--radius-full);
   font-size: var(--font-size-sm);
   font-weight: 500;
@@ -15,8 +16,9 @@
 .skill-tag:hover {
   background-color: var(--color-secondary);
   color: var(--color-light);
+  border-color: var(--color-secondary);
   transform: translateY(-2px);
-  box-shadow: 0 4px 8px rgba(221, 162, 95, 0.3);
+  box-shadow: 0 4px 8px rgba(73, 45, 130, 0.4);
 }
 
 /* Small variant - for nested projects */
@@ -53,5 +55,5 @@
 .skill-tag--gradient:hover {
   background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-secondary) 100%);
   transform: translateY(-4px) scale(1.05);
-  box-shadow: 0 8px 16px rgba(93, 109, 55, 0.4);
+  box-shadow: 0 8px 16px rgba(142, 161, 216, 0.4);
 }

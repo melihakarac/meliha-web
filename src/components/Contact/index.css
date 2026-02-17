@@ -17,6 +17,7 @@
   font-size: var(--font-size-lg);
   line-height: 1.8;
   color: var(--color-gray-dark);
+  font-weight: 500;
 }
 
 .contact-details {
@@ -109,7 +110,7 @@
   background-color: var(--color-secondary);
   color: var(--color-light);
   transform: translateY(-3px);
-  box-shadow: 0 4px 12px rgba(221, 162, 95, 0.3);
+  box-shadow: 0 4px 12px rgba(73, 45, 130, 0.4);
 }
 
 .contact-form {
@@ -154,7 +155,7 @@
 .form-group textarea:focus {
   outline: none;
   border-color: var(--color-primary);
-  box-shadow: 0 0 0 3px rgba(93, 109, 55, 0.15);
+  box-shadow: 0 0 0 3px rgba(142, 161, 216, 0.2);
   transform: translateY(-2px);
 }
 
@@ -167,7 +168,7 @@
 .form-group--error input:focus,
 .form-group--error textarea:focus {
   border-color: var(--color-accent);
-  box-shadow: 0 0 0 3px rgba(187, 107, 37, 0.15);
+  box-shadow: 0 0 0 3px rgba(143, 83, 196, 0.2);
 }
 
 .error-message {
@@ -215,13 +216,13 @@
 .form-status--success {
   background: linear-gradient(135deg, var(--color-primary) 0%, var(--color-primary-light) 100%);
   color: var(--color-light);
-  box-shadow: 0 8px 25px rgba(93, 109, 55, 0.35);
+  box-shadow: 0 8px 25px rgba(142, 161, 216, 0.4);
 }
 
 .form-status--error {
-  background: linear-gradient(135deg, var(--color-accent) 0%, #d4783a 100%);
+  background: linear-gradient(135deg, var(--color-accent) 0%, #a865d4 100%);
   color: var(--color-light);
-  box-shadow: 0 8px 25px rgba(187, 107, 37, 0.35);
+  box-shadow: 0 8px 25px rgba(143, 83, 196, 0.4);
 }
 
 @keyframes toastSlideIn {
