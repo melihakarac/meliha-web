@@ -19,12 +19,12 @@ const dmSans = DM_Sans({
 export const metadata: Metadata = {
   title: 'Meliha Karac — Software Engineer',
   description:
-    'I work across the stack, but the frontend is where I leave fingerprints. Five years across fintech, healthcare, adtech, and e-commerce.',
-  keywords: ['software engineer', 'frontend engineer', 'react', 'next.js', 'typescript', 'node.js', 'aws'],
+    'Frontend-deep full-stack engineer. Five years shipping production web apps in fintech, healthcare, adtech, and internal tooling. React, Next.js, TypeScript, Node.js, PostgreSQL.',
+  keywords: ['software engineer', 'full-stack engineer', 'frontend engineer', 'react', 'next.js', 'typescript', 'node.js', 'postgresql', 'react native'],
   authors: [{ name: 'Meliha Karac' }],
   openGraph: {
     title: 'Meliha Karac — Software Engineer',
-    description: 'I work across the stack, but the frontend is where I leave fingerprints.',
+    description: 'I ship features end-to-end. Frontend-deep, full-stack capable, comfortable in regulated production.',
     type: 'website',
   },
 }

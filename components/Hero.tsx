@@ -1,15 +1,11 @@
 'use client'
 
 import { motion } from 'framer-motion'
-import dynamic from 'next/dynamic'
-
-const HeroScene = dynamic(() => import('./HeroScene'), { ssr: false })
+import { BubbleBackground } from '@/components/animate-ui/components/backgrounds/bubble'
 
 const container = {
   hidden: {},
-  show: {
-    transition: { staggerChildren: 0.11, delayChildren: 0.3 },
-  },
+  show: { transition: { staggerChildren: 0.11, delayChildren: 0.3 } },
 }
 
 const item = {
@@ -23,90 +19,84 @@ export default function Hero() {
       id="hero"
       className="relative min-h-screen flex items-center overflow-hidden bg-bg"
     >
-      {/* Ambient background glows */}
-      <div className="absolute inset-0 pointer-events-none select-none">
-        <div className="absolute top-[40%] left-[15%] -translate-y-1/2 w-[700px] h-[700px] rounded-full bg-violet-700/10 blur-[140px]" />
-        <div className="absolute top-[50%] right-[10%] -translate-y-1/2 w-[500px] h-[500px] rounded-full bg-cyan-500/6 blur-[120px]" />
+      {/* Animated background — sits below all content, click-through */}
+      <div className="absolute inset-0 pointer-events-none">
+        {/* opacity: dim the bubbles so headline contrast holds. pointer-events:auto on the inner so the interactive bubble responds */}
+        <div className="absolute inset-0 opacity-60 pointer-events-auto">
+          <BubbleBackground interactive className="absolute inset-0" />
+        </div>
+        {/* Vignette layers — protect headline contrast against the saturated bg */}
+        <div className="absolute inset-0 bg-gradient-to-b from-bg/40 via-transparent to-bg/80" />
+        <div className="absolute inset-0 bg-gradient-to-r from-bg/60 via-transparent to-bg/30" />
       </div>
 
-      <div className="max-w-7xl mx-auto px-6 md:px-12 w-full pt-24 pb-20 grid grid-cols-1 lg:grid-cols-2 gap-12 items-center">
+      {/* Content — max-w-6xl matches global container; nav offset accounted for via pt-28 */}
+      <div className="max-w-6xl mx-auto px-6 md:px-10 lg:px-12 w-full pt-28 pb-24 relative">
+        <motion.div variants={container} initial="hidden" animate="show" className="max-w-4xl">
 
-        {/* ─── Text column ─── */}
-        <motion.div variants={container} initial="hidden" animate="show">
+          {/* Eyebrow — uses fontSize.eyebrow token from tailwind config */}
           <motion.p
             variants={item}
-            className="font-body text-xs tracking-[0.22em] uppercase text-text-lo mb-7"
+            className="font-body text-eyebrow text-text-lo uppercase mb-6"
           >
-            Software Developer · Remote
+            Software Engineer · Remote
           </motion.p>
 
+          {/* Display name — uses display-xl fluid type token */}
           <motion.h1
             variants={item}
-            className="font-display font-black uppercase leading-[0.95] tracking-tight text-[clamp(4rem,9vw,7.5rem)] text-text-hi"
+            className="font-display font-black uppercase text-display-xl text-text-hi"
           >
             Meliha
             <br />
             <span className="gradient-text">Karac</span>
           </motion.h1>
 
+          {/* Tagline — sized down from headline; sets up senior signal in one line */}
           <motion.p
             variants={item}
-            className="mt-6 font-display font-semibold text-[clamp(1.1rem,2.2vw,1.5rem)] text-text-mid"
+            className="mt-8 font-display font-semibold text-display-md text-text-mid max-w-2xl"
           >
-            Senior Software Developer
+            I ship features end-to-end.{' '}
+            <span className="text-text-lo">Frontend-deep, full-stack capable, comfortable in regulated production.</span>
           </motion.p>
 
+          {/* Stack — small, secondary, scannable */}
           <motion.p
             variants={item}
-            className="mt-4 font-body text-text-mid text-base leading-relaxed max-w-[460px]"
+            className="mt-5 font-body text-sm tracking-wide text-text-lo"
           >
-            I work across the stack, but the frontend is where I leave fingerprints.
+            React · Next.js · TypeScript · Node.js · PostgreSQL
           </motion.p>
 
-          <motion.p
-            variants={item}
-            className="mt-3 font-body text-text-lo text-sm leading-relaxed max-w-[460px]"
-          >
-            React · Next.js · TypeScript · Node.js · AWS
-          </motion.p>
-
+          {/* CTAs — 44px+ touch targets via py-3 + line-height */}
           <motion.div variants={item} className="mt-10 flex flex-wrap gap-3">
             <a
               href="#work"
-              className="inline-flex items-center gap-2 px-6 py-3 bg-violet-600 hover:bg-violet-500 text-white font-body font-medium text-sm rounded-full transition-colors duration-200"
+              className="inline-flex items-center gap-2 px-6 py-3 bg-violet-600 hover:bg-violet-500 text-white font-body font-medium text-sm rounded-full transition-default"
             >
-              View Work
-              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
+              View work
+              <svg width="14" height="14" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2" aria-hidden="true">
                 <line x1="12" y1="5" x2="12" y2="19" />
                 <polyline points="19 12 12 19 5 12" />
               </svg>
             </a>
             <a
               href="#contact"
-              className="inline-flex items-center gap-2 px-6 py-3 border border-border hover:border-text-lo text-text-mid hover:text-text-hi font-body font-medium text-sm rounded-full transition-all duration-200"
+              className="inline-flex items-center gap-2 px-6 py-3 border border-border hover:border-text-lo text-text-mid hover:text-text-hi font-body font-medium text-sm rounded-full transition-default"
             >
-              Contact
+              Get in touch
             </a>
           </motion.div>
         </motion.div>
-
-        {/* ─── 3D Blob column ─── */}
-        <motion.div
-          initial={{ opacity: 0, scale: 0.88 }}
-          animate={{ opacity: 1, scale: 1 }}
-          transition={{ duration: 1.4, ease: [0.25, 0.46, 0.45, 0.94], delay: 0.4 }}
-          className="hidden lg:block w-full aspect-square max-w-[520px] mx-auto"
-        >
-          <HeroScene />
-        </motion.div>
       </div>
 
-      {/* Scroll hint */}
+      {/* Scroll hint — hidden on mobile (no point in vertically tight hero) */}
       <motion.div
         initial={{ opacity: 0 }}
         animate={{ opacity: 1 }}
-        transition={{ delay: 1.8, duration: 0.6 }}
-        className="absolute bottom-8 left-1/2 -translate-x-1/2 flex flex-col items-center gap-2"
+        transition={{ delay: 1.6, duration: 0.6 }}
+        className="hidden md:flex absolute bottom-8 left-1/2 -translate-x-1/2 flex-col items-center gap-2 z-10"
       >
         <span className="font-body text-[10px] tracking-[0.2em] uppercase text-text-lo">Scroll</span>
         <motion.span

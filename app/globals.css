@@ -2,9 +2,9 @@
 @tailwind components;
 @tailwind utilities;
 
-* {
-  cursor: none;
-}
+/* ──────────────────────────────────────────────────────────────
+ * Base
+ * ─────────────────────────────────────────────────────────── */
 
 html {
   scroll-behavior: smooth;
@@ -15,39 +15,68 @@ body {
   background-color: #08080a;
   color: #f0f0ff;
   font-family: var(--font-dm-sans), sans-serif;
+  font-feature-settings: 'ss01', 'cv11';
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
+  text-rendering: optimizeLegibility;
   overflow-x: hidden;
 }
 
-::-webkit-scrollbar {
-  width: 4px;
+/* Custom cursor only on devices that have a real pointer.
+   Touch devices keep the native cursor — better for accessibility
+   and avoids dead zones on mobile. */
+@media (hover: hover) and (pointer: fine) {
+  * {
+    cursor: none;
+  }
 }
 
-::-webkit-scrollbar-track {
-  background: #08080a;
+/* ──────────────────────────────────────────────────────────────
+ * Focus rings — visible only on keyboard navigation
+ * ─────────────────────────────────────────────────────────── */
+*:focus {
+  outline: none;
 }
 
-::-webkit-scrollbar-thumb {
-  background: #1c1c21;
+*:focus-visible {
+  outline: 2px solid #7c3aed;
+  outline-offset: 3px;
   border-radius: 2px;
 }
 
+/* ──────────────────────────────────────────────────────────────
+ * Scrollbar — slim, monochrome
+ * ─────────────────────────────────────────────────────────── */
+::-webkit-scrollbar {
+  width: 4px;
+}
+::-webkit-scrollbar-track {
+  background: #08080a;
+}
+::-webkit-scrollbar-thumb {
+  background: #22222a;
+  border-radius: 2px;
+}
 ::-webkit-scrollbar-thumb:hover {
   background: #7c3aed;
 }
 
+/* Selection */
 ::selection {
   background: rgba(124, 58, 237, 0.3);
   color: #f0f0ff;
 }
 
+/* ──────────────────────────────────────────────────────────────
+ * Utilities
+ * ─────────────────────────────────────────────────────────── */
 @layer utilities {
   .gradient-text {
     background: linear-gradient(135deg, #7c3aed, #d946ef, #06b6d4);
     -webkit-background-clip: text;
     -webkit-text-fill-color: transparent;
     background-clip: text;
+    color: transparent;
   }
 
   .blur-backdrop {
@@ -55,7 +84,26 @@ body {
     -webkit-backdrop-filter: blur(12px);
   }
 
-  .glow-violet {
-    box-shadow: 0 0 40px rgba(124, 58, 237, 0.15);
+  /* Standardized 180ms ease for hover/transition states */
+  .transition-default {
+    transition: all 180ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
+  }
+
+  /* Reading column — comfortable line length for body copy (~65ch) */
+  .reading-column {
+    max-width: 38rem;
+  }
+}
+
+/* ──────────────────────────────────────────────────────────────
+ * Reduce motion preferences — respect the OS setting
+ * ─────────────────────────────────────────────────────────── */
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
   }
 }

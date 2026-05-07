@@ -3,36 +3,50 @@
 import { useRef, useState } from 'react'
 import { motion, useInView } from 'framer-motion'
 
+/**
+ * Project copy follows a strict three-sentence pattern:
+ *   1. What it is (one sharp sentence)
+ *   2. Technical challenge / context
+ *   3. Outcome / what was shipped
+ *
+ * Names are neutral (no client names) since the work is under NDA.
+ */
 const projects = [
   {
     id: '01',
-    name: 'Global Fintech Platform',
-    category: 'Fintech',
-    year: '2024 — Present', // [TODO: replace with real timeframe]
+    name: 'Fintech Platform',
+    category: 'Regulated Production',
+    year: '2024 — Present',
     description:
-      'Dashboard and onboarding flows for a financial services platform operating across multiple markets. Built in React + TypeScript, with a focus on form-heavy UX and handling regulatory edge cases cleanly.',
-    tech: ['React', 'TypeScript', 'Next.js'],
-    link: '#', // [TODO: replace with real URL]
+      'Next.js platform for a regulated financial product, supporting KYC, deposits, and withdrawals. Frontend integrates a .NET backend through REST, with every flow constrained by regulatory and authentication requirements. Modernized high-traffic pages and shipped compliance-driven UX in live production.',
+    tech: ['Next.js', 'TypeScript', 'REST APIs', '.NET'],
   },
   {
     id: '02',
-    name: 'Healthcare SaaS',
-    category: 'Healthcare',
-    year: '2021 — 2022', // [TODO: replace with real timeframe]
+    name: 'Internal Operations Tool',
+    category: 'Internal Tooling',
+    year: '2022 — 2024',
     description:
-      'Patient-facing and internal tooling for a health data platform. Worked on data visualization components and a design system used across three separate product surfaces.',
-    tech: ['React', 'TypeScript', 'Design Systems'],
-    link: '#', // [TODO: replace with real URL]
+      'Internal back-office system that replaced manual operator workflows. Led the MVP end-to-end — UI, API surface, and PostgreSQL data model — on a fixed delivery timeline. Shipped from zero to in-use software, then iterated on operator feedback to harden core flows.',
+    tech: ['Next.js', 'Node.js', 'PostgreSQL', 'REST'],
   },
   {
     id: '03',
-    name: 'Adtech Platform',
+    name: 'SDK Configuration Dashboard',
     category: 'Adtech',
-    year: '2022 — 2023', // [TODO: replace with real timeframe]
+    year: '2020 — 2022',
     description:
-      'High-traffic publisher-side tooling. Performance was the main constraint — optimized rendering for components updating on real-time bid data.',
-    tech: ['React', 'Next.js', 'Performance'],
-    link: '#', // [TODO: replace with real URL]
+      'Dashboard for configuring embeddable widgets distributed to publishers via SDK. Built monetization and customization workflows on a Node.js + MongoDB backend, against a revenue-generating system where regressions had real cost. Shipped feature work and performance improvements into live production.',
+    tech: ['React', 'Next.js', 'Node.js', 'MongoDB'],
+  },
+  {
+    id: '04',
+    name: 'Healthcare Admin System',
+    category: 'Healthcare',
+    year: '2021 — 2022',
+    description:
+      'Admin platform used by clinicians, with parity across web and React Native. The same product also exposed a Shopify/Liquid storefront and analytics/SEO instrumentation. Shipped feature work across both client surfaces and the storefront integration.',
+    tech: ['React', 'React Native', 'Shopify', 'Liquid'],
   },
 ]
 
@@ -49,7 +63,7 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
     const rect = cardRef.current.getBoundingClientRect()
     const cx = (e.clientY - rect.top - rect.height / 2) / (rect.height / 2)
     const cy = -((e.clientX - rect.left - rect.width / 2) / (rect.width / 2))
-    setTilt({ x: cx * 4, y: cy * 4 })
+    setTilt({ x: cx * 3, y: cy * 3 })
   }
 
   const onMouseLeave = () => setTilt({ x: 0, y: 0 })
@@ -57,9 +71,9 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
   return (
     <motion.div
       ref={ref}
-      initial={{ opacity: 0, y: 40 }}
+      initial={{ opacity: 0, y: 32 }}
       animate={inView ? { opacity: 1, y: 0 } : {}}
-      transition={{ duration: 0.65, delay: index * 0.1, ease: [0.25, 0.46, 0.45, 0.94] }}
+      transition={{ duration: 0.6, delay: index * 0.08, ease: [0.25, 0.46, 0.45, 0.94] }}
     >
       <motion.div
         ref={cardRef}
@@ -68,50 +82,49 @@ function ProjectCard({ project, index }: { project: Project; index: number }) {
         animate={{ rotateX: tilt.x, rotateY: tilt.y }}
         transition={{ type: 'spring', stiffness: 280, damping: 22 }}
         style={{ transformStyle: 'preserve-3d', perspective: 800 }}
-        className="group relative bg-surface border border-border rounded-2xl p-8 hover:border-violet-500/30 transition-colors duration-300 h-full"
+        /* card: rounded-card token (12px), consistent inner padding 8 (32px) */
+        className="group relative bg-surface border border-border rounded-card p-7 md:p-8 hover:border-violet-500/30 transition-default h-full"
       >
-        {/* Number + category */}
-        <div className="flex items-start justify-between mb-6">
-          <span className="font-display font-black text-5xl text-border select-none">{project.id}</span>
-          <span className="font-body text-xs text-text-lo border border-border px-3 py-1 rounded-full">
+        {/* Header — id + category badge */}
+        <div className="flex items-start justify-between mb-5">
+          <span className="font-display font-black text-4xl text-border select-none leading-none">
+            {project.id}
+          </span>
+          <span className="font-body text-[11px] tracking-wide text-text-lo border border-border px-2.5 py-1 rounded-full">
             {project.category}
           </span>
         </div>
 
         {/* Title */}
-        <h3 className="font-display font-bold text-2xl text-text-hi mb-3 group-hover:text-violet-400 transition-colors duration-300">
+        <h3 className="font-display font-bold text-2xl text-text-hi mb-3 group-hover:text-violet-400 transition-default">
           {project.name}
         </h3>
 
-        {/* Description */}
-        <p className="font-body text-text-lo text-sm leading-relaxed mb-6">{project.description}</p>
+        {/* Description — bumped from text-lo to text-mid for body legibility */}
+        <p className="font-body text-text-mid text-sm leading-relaxed mb-6">
+          {project.description}
+        </p>
 
-        {/* Tech tags */}
-        <div className="flex flex-wrap gap-2 mb-8">
+        {/* Tech tags — consistent pill style with chip tokens */}
+        <div className="flex flex-wrap gap-1.5 mb-6">
           {project.tech.map((t) => (
-            <span key={t} className="font-body text-xs text-text-lo border border-border/50 px-2.5 py-0.5 rounded">
+            <span
+              key={t}
+              className="font-body text-[11px] text-text-lo border border-border/60 px-2 py-0.5 rounded-md"
+            >
               {t}
             </span>
           ))}
         </div>
 
-        {/* Footer */}
+        {/* Footer — year only; NDA = no public links */}
         <div className="flex items-center justify-between mt-auto">
           <span className="font-body text-xs text-text-lo">{project.year}</span>
-          <a
-            href={project.link}
-            className="font-body text-xs text-violet-400 hover:text-violet-300 transition-colors flex items-center gap-1 opacity-0 group-hover:opacity-100 duration-200"
-          >
-            View project
-            <svg width="12" height="12" viewBox="0 0 24 24" fill="none" stroke="currentColor" strokeWidth="2">
-              <line x1="5" y1="12" x2="19" y2="12" />
-              <polyline points="12 5 19 12 12 19" />
-            </svg>
-          </a>
+          <span className="font-body text-xs text-text-lo italic">Under NDA</span>
         </div>
 
-        {/* Hover gradient overlay */}
-        <div className="absolute inset-0 rounded-2xl opacity-0 group-hover:opacity-100 transition-opacity duration-500 pointer-events-none bg-gradient-to-br from-violet-600/5 via-transparent to-cyan-600/5" />
+        {/* Hover gradient overlay — subtle */}
+        <div className="absolute inset-0 rounded-card opacity-0 group-hover:opacity-100 transition-default pointer-events-none bg-gradient-to-br from-violet-600/5 via-transparent to-cyan-600/5" />
       </motion.div>
     </motion.div>
   )
@@ -122,21 +135,22 @@ export default function Work() {
   const inView = useInView(ref, { once: true, margin: '-80px' })
 
   return (
-    <section id="work" className="py-32 bg-surface">
-      <div className="max-w-7xl mx-auto px-6 md:px-12">
+    <section id="work" className="py-section-y md:py-section-y-lg bg-surface">
+      <div className="max-w-6xl mx-auto px-6 md:px-10 lg:px-12">
         <motion.div
           ref={ref}
           initial={{ opacity: 0, y: 20 }}
           animate={inView ? { opacity: 1, y: 0 } : {}}
           transition={{ duration: 0.6 }}
-          className="mb-16"
+          className="mb-12 md:mb-16"
         >
-          <p className="font-body text-xs tracking-[0.22em] uppercase text-text-lo mb-4">Work</p>
-          <h2 className="font-display font-black text-[clamp(2.4rem,5vw,4.5rem)] text-text-hi leading-[1.05]">
-            Featured Projects
+          <p className="font-body text-eyebrow text-text-lo uppercase mb-4">Selected work</p>
+          <h2 className="font-display font-black text-display-lg text-text-hi max-w-3xl">
+            Four projects, four industries.
           </h2>
         </motion.div>
 
+        {/* 2-col grid on tablet+, single col on mobile; 16px gap between cards */}
         <div className="grid grid-cols-1 md:grid-cols-2 gap-4">
           {projects.map((project, index) => (
             <ProjectCard key={project.id} project={project} index={index} />

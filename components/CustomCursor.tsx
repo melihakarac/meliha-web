@@ -1,9 +1,13 @@
 'use client'
 
-import { useEffect } from 'react'
+import { useEffect, useState } from 'react'
 import { motion, useMotionValue, useSpring } from 'framer-motion'
 
 export default function CustomCursor() {
+  // Only render on devices with a real pointer (hover-capable, fine pointer).
+  // Skipping on touch devices avoids weird drag artefacts and saves work.
+  const [enabled, setEnabled] = useState(false)
+
   const mouseX = useMotionValue(-100)
   const mouseY = useMotionValue(-100)
 
@@ -14,13 +18,24 @@ export default function CustomCursor() {
   const ringY = useSpring(mouseY, { damping: 20, stiffness: 180 })
 
   useEffect(() => {
+    const mq = window.matchMedia('(hover: hover) and (pointer: fine)')
+    setEnabled(mq.matches)
+    const listener = (e: MediaQueryListEvent) => setEnabled(e.matches)
+    mq.addEventListener('change', listener)
+    return () => mq.removeEventListener('change', listener)
+  }, [])
+
+  useEffect(() => {
+    if (!enabled) return
     const move = (e: MouseEvent) => {
       mouseX.set(e.clientX)
       mouseY.set(e.clientY)
     }
     window.addEventListener('mousemove', move)
     return () => window.removeEventListener('mousemove', move)
-  }, [mouseX, mouseY])
+  }, [enabled, mouseX, mouseY])
+
+  if (!enabled) return null
 
   return (
     <>
