@@ -51,7 +51,7 @@ export default function Hero() {
 
           <motion.h1
             variants={item}
-            className="font-display font-black uppercase text-display-xl text-text-hi break-words"
+            className="font-display font-black uppercase text-display-xl text-text-hi whitespace-nowrap"
           >
             {HERO.firstName}
             <br />

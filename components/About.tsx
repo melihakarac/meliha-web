@@ -34,7 +34,7 @@ export default function About() {
 
           <motion.h2
             variants={itemVariants}
-            className="font-display font-black text-display-lg text-text-hi mb-12 md:mb-16 max-w-4xl break-words"
+            className="font-display font-black text-display-lg text-text-hi mb-12 md:mb-16 max-w-3xl break-words"
           >
             {ABOUT.headlineLead}
             <br />

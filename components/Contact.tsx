@@ -24,7 +24,7 @@ export default function Contact() {
         >
           <p className="font-body text-eyebrow text-text-lo uppercase mb-4">{CONTACT.eyebrow}</p>
 
-          <h2 className="font-display font-black text-display-lg text-text-hi mb-6 break-words">
+          <h2 className="font-display font-black text-display-lg text-text-hi mb-6 max-w-3xl break-words">
             {CONTACT.headline}
           </h2>
 

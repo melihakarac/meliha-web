@@ -18,12 +18,10 @@ body {
   overflow-x: hidden;
 }
 
-/* Headings can't break inside hyphenated/long words by default; allow it
-   so display-xl/lg copy never forces horizontal overflow on ~320px viewports. */
+/* Only break words that would actually overflow the container —
+   never insert soft hyphens mid-word (causes "Meli-ha" on display headings). */
 h1, h2, h3 {
   overflow-wrap: break-word;
-  word-break: break-word;
-  hyphens: auto;
 }
 
 /* Custom cursor only on devices that have a real pointer.
