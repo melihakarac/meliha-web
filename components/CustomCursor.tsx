@@ -2,23 +2,24 @@
 
 import { useEffect, useState } from 'react'
 import { motion, useMotionValue, useSpring } from 'framer-motion'
+import { CURSOR } from '@/constants'
 
 export default function CustomCursor() {
   // Only render on devices with a real pointer (hover-capable, fine pointer).
   // Skipping on touch devices avoids weird drag artefacts and saves work.
   const [enabled, setEnabled] = useState(false)
 
-  const mouseX = useMotionValue(-100)
-  const mouseY = useMotionValue(-100)
+  const mouseX = useMotionValue<number>(CURSOR.offscreen)
+  const mouseY = useMotionValue<number>(CURSOR.offscreen)
 
-  const dotX = useSpring(mouseX, { damping: 25, stiffness: 700 })
-  const dotY = useSpring(mouseY, { damping: 25, stiffness: 700 })
+  const dotX = useSpring(mouseX, { damping: CURSOR.dotSpringDamping, stiffness: CURSOR.dotSpringStiffness })
+  const dotY = useSpring(mouseY, { damping: CURSOR.dotSpringDamping, stiffness: CURSOR.dotSpringStiffness })
 
-  const ringX = useSpring(mouseX, { damping: 20, stiffness: 180 })
-  const ringY = useSpring(mouseY, { damping: 20, stiffness: 180 })
+  const ringX = useSpring(mouseX, { damping: CURSOR.ringSpringDamping, stiffness: CURSOR.ringSpringStiffness })
+  const ringY = useSpring(mouseY, { damping: CURSOR.ringSpringDamping, stiffness: CURSOR.ringSpringStiffness })
 
   useEffect(() => {
-    const mq = window.matchMedia('(hover: hover) and (pointer: fine)')
+    const mq = window.matchMedia(CURSOR.pointerMediaQuery)
     setEnabled(mq.matches)
     const listener = (e: MediaQueryListEvent) => setEnabled(e.matches)
     mq.addEventListener('change', listener)
@@ -41,11 +42,11 @@ export default function CustomCursor() {
     <>
       <motion.div
         className="fixed z-[9999] top-0 left-0 w-2 h-2 rounded-full bg-violet-400 pointer-events-none mix-blend-difference"
-        style={{ translateX: dotX, translateY: dotY, x: -4, y: -4 }}
+        style={{ translateX: dotX, translateY: dotY, x: CURSOR.dotOffset, y: CURSOR.dotOffset }}
       />
       <motion.div
         className="fixed z-[9998] top-0 left-0 w-8 h-8 rounded-full border border-violet-500/50 pointer-events-none"
-        style={{ translateX: ringX, translateY: ringY, x: -16, y: -16 }}
+        style={{ translateX: ringX, translateY: ringY, x: CURSOR.ringOffset, y: CURSOR.ringOffset }}
       />
     </>
   )

@@ -1010,6 +1010,12 @@ video {
 .overflow-hidden {
   overflow: hidden;
 }
+.break-words {
+  overflow-wrap: break-word;
+}
+.break-all {
+  word-break: break-all;
+}
 .rounded-card {
   border-radius: 0.75rem;
 }
@@ -1212,17 +1218,17 @@ video {
   font-size: 11px;
 }
 .text-display-lg {
-  font-size: clamp(2.5rem, 5.5vw, 4.5rem);
+  font-size: clamp(2rem, 6vw, 4.5rem);
   line-height: 1.05;
   letter-spacing: -0.015em;
 }
 .text-display-md {
-  font-size: clamp(1.75rem, 3vw, 2.5rem);
+  font-size: clamp(1.5rem, 3.5vw, 2.5rem);
   line-height: 1.15;
   letter-spacing: -0.01em;
 }
 .text-display-xl {
-  font-size: clamp(4rem, 11vw, 9rem);
+  font-size: clamp(2.75rem, 12vw, 9rem);
   line-height: 0.92;
   letter-spacing: -0.02em;
 }
@@ -1345,15 +1351,9 @@ video {
     backdrop-filter: blur(12px);
     -webkit-backdrop-filter: blur(12px);
   }
-/* Standardized 180ms ease for hover/transition states */
 .transition-default {
     transition: all 180ms cubic-bezier(0.25, 0.46, 0.45, 0.94);
   }
-/* Reading column — comfortable line length for body copy (~65ch) */
-
-/* ──────────────────────────────────────────────────────────────
- * Base
- * ─────────────────────────────────────────────────────────── */
 
 html {
   scroll-behavior: smooth;
@@ -1371,6 +1371,14 @@ body {
   overflow-x: hidden;
 }
 
+/* Headings can't break inside hyphenated/long words by default; allow it
+   so display-xl/lg copy never forces horizontal overflow on ~320px viewports. */
+h1, h2, h3 {
+  overflow-wrap: break-word;
+  word-break: break-word;
+  hyphens: auto;
+}
+
 /* Custom cursor only on devices that have a real pointer.
    Touch devices keep the native cursor — better for accessibility
    and avoids dead zones on mobile. */
@@ -1380,9 +1388,6 @@ body {
   }
 }
 
-/* ──────────────────────────────────────────────────────────────
- * Focus rings — visible only on keyboard navigation
- * ─────────────────────────────────────────────────────────── */
 *:focus {
   outline: none;
 }
@@ -1393,9 +1398,6 @@ body {
   border-radius: 2px;
 }
 
-/* ──────────────────────────────────────────────────────────────
- * Scrollbar — slim, monochrome
- * ─────────────────────────────────────────────────────────── */
 ::-webkit-scrollbar {
   width: 4px;
 }
@@ -1410,23 +1412,17 @@ body {
   background: #7c3aed;
 }
 
-/* Selection */
 ::-moz-selection {
   background: rgba(124, 58, 237, 0.3);
   color: #f0f0ff;
 }
+
 ::selection {
   background: rgba(124, 58, 237, 0.3);
   color: #f0f0ff;
 }
 
-/* ──────────────────────────────────────────────────────────────
- * Utilities
- * ─────────────────────────────────────────────────────────── */
-
-/* ──────────────────────────────────────────────────────────────
- * Reduce motion preferences — respect the OS setting
- * ─────────────────────────────────────────────────────────── */
+/* Respect OS-level reduced motion preference. */
 @media (prefers-reduced-motion: reduce) {
   *,
   *::before,

@@ -1,28 +1,17 @@
 {
   "short_name": "Meliha Karac",
-  "name": "Meliha Karac | Software Developer",
-  "description": "Software Developer specializing in React and Next.js",
+  "name": "Meliha Karac, Senior Full-Stack Engineer",
+  "description": "Senior full-stack engineer shipping production web applications.",
   "icons": [
     {
       "src": "favicon.svg",
       "sizes": "any",
-      "type": "image/svg+xml"
-    },
-    {
-      "src": "web-app-manifest-192x192.png",
-      "sizes": "192x192",
-      "type": "image/png",
-      "purpose": "maskable"
-    },
-    {
-      "src": "web-app-manifest-512x512.png",
-      "sizes": "512x512",
-      "type": "image/png",
-      "purpose": "maskable"
+      "type": "image/svg+xml",
+      "purpose": "any"
     }
   ],
   "start_url": ".",
   "display": "standalone",
-  "theme_color": "#5d6d37",
-  "background_color": "#fffceb"
+  "theme_color": "#7c3aed",
+  "background_color": "#08080a"
 }

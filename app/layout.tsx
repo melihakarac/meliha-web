@@ -1,5 +1,6 @@
 import type { Metadata } from 'next'
 import { Syne, DM_Sans } from 'next/font/google'
+import { META } from '@/content'
 import './globals.css'
 
 const syne = Syne({
@@ -17,15 +18,18 @@ const dmSans = DM_Sans({
 })
 
 export const metadata: Metadata = {
-  title: 'Meliha Karac — Software Engineer',
-  description:
-    'Frontend-deep full-stack engineer. Five years shipping production web apps in fintech, healthcare, adtech, and internal tooling. React, Next.js, TypeScript, Node.js, PostgreSQL.',
-  keywords: ['software engineer', 'full-stack engineer', 'frontend engineer', 'react', 'next.js', 'typescript', 'node.js', 'postgresql', 'react native'],
-  authors: [{ name: 'Meliha Karac' }],
+  title: META.title,
+  description: META.description,
+  keywords: [...META.keywords],
+  authors: [{ name: META.authorName }],
+  manifest: '/manifest.json',
+  icons: {
+    icon: [{ url: '/favicon.svg', type: 'image/svg+xml' }],
+  },
   openGraph: {
-    title: 'Meliha Karac — Software Engineer',
-    description: 'I ship features end-to-end. Frontend-deep, full-stack capable, comfortable in regulated production.',
-    type: 'website',
+    title: META.openGraph.title,
+    description: META.openGraph.description,
+    type: META.openGraph.type,
   },
 }
 
