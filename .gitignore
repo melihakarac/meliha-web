@@ -13,6 +13,10 @@ cypress/downloads
 
 # production
 /build
+/.next
+/out
+tsconfig.tsbuildinfo
+*.tsbuildinfo
 
 # misc
 .DS_Store
